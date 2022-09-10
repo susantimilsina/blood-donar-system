@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "171753064353-l92hjhnk9p77tj4bed99g7q3blksstsu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blood_doner",
+            "certificate_hash": "ac7c0777c851f1cc9bedebafa0ac05d4b4691fcf"
+          }
+        },
+        {
+          "client_id": "171753064353-srr9plo2qgmu10e95374hmocbibiln45.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blood_doner",
+            "certificate_hash": "2e4fbf708653c7f8ce106979846db6dc8383b020"
+          }
+        },
+        {
           "client_id": "171753064353-krmieduaugedufva6ifqgc19lq5t34kk.apps.googleusercontent.com",
           "client_type": 3
         }

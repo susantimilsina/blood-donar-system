@@ -10,6 +10,14 @@ import 'package:google_fonts/google_fonts.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  //     options: const FirebaseOptions(
+  //         apiKey: "XXX",
+  //         authDomain: "XXX",
+  //         databaseURL: "XXX",
+  //         projectId: "XXX",
+  //         storageBucket: "XXX",
+  //         messagingSenderId: "XXX",
+  //         appId: "1:171753064353:android:7657ed524de1f70c4b6de0"));
   setupLocator();
   setupSnackbarUi();
   setupDialogUi();
@@ -29,6 +37,11 @@ class MyApp extends StatelessWidget {
           headlineLarge: GoogleFonts.bebasNeue(),
         ),
       ),
+      navigatorObservers: [
+        StackedService.routeObserver,
+        // _LoggingObserver(),
+      ],
+      initialRoute: Routes.loginView,
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
     );
