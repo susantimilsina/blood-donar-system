@@ -217,6 +217,7 @@ com/google/errorprone/annotations/concurrent/LazyInit.class
 com/google/errorprone/annotations/concurrent/LockMethod.class
 com/google/errorprone/annotations/concurrent/UnlockMethod.class
 com/google/firebase/annotations/DeferredApi.class
+com/google/firebase/annotations/PreviewApi.class
 com/google/firebase/annotations/PublicApi.class
 com/google/firebase/auth/ActionCodeResult$ActionDataKey.class
 com/google/firebase/auth/ActionCodeResult$Operation.class

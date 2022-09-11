@@ -42,9 +42,11 @@ class AuthenticationService {
     @required password,
   }) async {
     try {
+      print("here");
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
+      print("Exceptoon" + e.toString());
       if (e.code == 'weak-password') {
         _snackbarService.showSnackbar(message: 'password is too weak');
       } else if (e.code == 'email-already-in-use') {
