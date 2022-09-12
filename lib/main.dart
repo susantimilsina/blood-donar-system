@@ -1,6 +1,7 @@
 import 'package:blood_doner/ui/shared/setup_snackbar_ui.dart';
 import 'package:blood_doner/ui/shared/setup_dialog_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:blood_doner/app/app.locator.dart';
 import 'app/app.router.dart';
@@ -9,6 +10,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   await Firebase.initializeApp();
   //     options: const FirebaseOptions(
   //         apiKey: "XXX",
