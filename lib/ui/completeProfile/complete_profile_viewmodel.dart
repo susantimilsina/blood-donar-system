@@ -3,12 +3,13 @@ import 'dart:io';
 import 'package:blood_doner/app/app.logger.dart';
 import 'package:blood_doner/services/cloud_storage_service.dart';
 import 'package:blood_doner/services/firestore_service.dart';
+import 'package:blood_doner/ui/shared/ui_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:location/location.dart';
 import 'package:logger/logger.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
-
 import '../../app/app.locator.dart';
 import '../../models/UserModel.dart';
 import '../../services/authentication_service.dart';
@@ -17,9 +18,7 @@ import '../../services/image_selector.dart';
 class CompleteProfileViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
-  final SnackbarService _snackbarService = locator<SnackbarService>();
   final ImageSelector _imageSelector = locator<ImageSelector>();
-  final BottomSheetService _bottomSheetService = locator<BottomSheetService>();
   final CloudStorageService _cloudStorageService =
       locator<CloudStorageService>();
   final FirestoreService _firestoreService = locator<FirestoreService>();
@@ -78,6 +77,8 @@ class CompleteProfileViewModel extends BaseViewModel {
   String selectedRole = "Doner";
   String selectedBloodgroup = "A+";
   XFile? pickedImage;
+  double? latitude;
+  double? longitude;
 
   void onChangedBloodgroup(String? newBloodgroup) {
     selectedBloodgroup = newBloodgroup ?? selectedBloodgroup;
@@ -90,18 +91,59 @@ class CompleteProfileViewModel extends BaseViewModel {
   }
 
   void selectImage() async {
-    SheetResponse? sheetResponse = await _bottomSheetService.showBottomSheet(
-      title: 'upload image from :',
-      confirmButtonTitle: 'Gallery',
-      cancelButtonTitle: 'Camera',
-    );
-    if (sheetResponse != null) {
-      if (sheetResponse.confirmed) {
-        pickedImage = await _imageSelector.pickImagefromGallery();
-      } else {
-        pickedImage = await _imageSelector.pickImagefromCamera();
+    Get.bottomSheet(
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            verticalSpaceMedium,
+            const Padding(
+              padding: EdgeInsets.only(left: 10.0),
+              child: Text("Upload Image from :",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+            ),
+            verticalSpaceSmall,
+            ListTile(
+              onTap: () async {
+                pickedImage = await _imageSelector.pickImagefromCamera();
+                notifyListeners();
+                Get.back();
+              },
+              leading: const Icon(Icons.camera),
+              title: const Text("Camera"),
+            ),
+            ListTile(
+              onTap: () async {
+                pickedImage = await _imageSelector.pickImagefromGallery();
+                notifyListeners();
+                Get.back();
+              },
+              leading: const Icon(Icons.photo),
+              title: const Text("Gallery"),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.white);
+  }
+
+  Future _initLocationService() async {
+    var location = Location();
+    if (!await location.serviceEnabled()) {
+      if (!await location.requestService()) {
+        return;
       }
     }
+    var permission = await location.hasPermission();
+    if (permission == PermissionStatus.denied) {
+      permission = await location.requestPermission();
+      if (permission != PermissionStatus.granted) {
+        return;
+      }
+    }
+
+    var loc = await location.getLocation();
+    latitude = loc.latitude;
+    longitude = loc.latitude;
     notifyListeners();
   }
 
@@ -109,10 +151,14 @@ class CompleteProfileViewModel extends BaseViewModel {
     if (nameController.text.isEmpty ||
         ageController.text.isEmpty ||
         pickedImage == null) {
-      _snackbarService.showSnackbar(message: 'please enter all the fields');
+      Get.snackbar("Empty Fields", "Please enter all the fields",
+          snackPosition: SnackPosition.BOTTOM,
+          colorText: Colors.white,
+          backgroundColor: Colors.red);
       return;
     }
     setBusy(true);
+    await _initLocationService();
     try {
       CloudStorageResult cloudStorageResult =
           await _cloudStorageService.uploadImage(
@@ -126,15 +172,25 @@ class CompleteProfileViewModel extends BaseViewModel {
           age: ageController.text.trim(),
           role: selectedRole,
           imageUrl: cloudStorageResult.imageUrl,
+          longitude: (longitude ?? 0.0).toString(),
+          latitude: (latitude ?? 0.0).toString(),
           imageFileName: cloudStorageResult.imageFileName);
 
       await _firestoreService.createNewUserEntry(
           uid: _authenticationService.firebaseUser!.uid, user: user);
       await _authenticationService.populateUser(
           userId: _authenticationService.firebaseUser!.uid);
-      _snackbarService.showSnackbar(message: 'Log-in successful');
+      Get.snackbar(
+        "Success",
+        "Log-in successful",
+        colorText: Colors.white,
+        backgroundColor: Colors.green,
+        snackPosition: SnackPosition.BOTTOM,
+      );
     } catch (e) {
-      _snackbarService.showSnackbar(message: 'Some error occurred');
+      Get.snackbar("Error", "Some error occurred",
+          colorText: Colors.white, backgroundColor: Colors.green);
+
       _log.e(e.toString());
     }
     setBusy(false);

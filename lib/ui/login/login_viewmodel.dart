@@ -14,6 +14,12 @@ class LoginViewModel extends BaseViewModel {
   final SnackbarService _snackbarService = locator<SnackbarService>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+    bool passwordVisible = false;
+
+  changeVisibility() {
+    passwordVisible = !passwordVisible;
+    notifyListeners();
+  }
   final Logger _log = getLogger('LoginViewModel');
   void loginViaEmail() async {
     setBusy(true);

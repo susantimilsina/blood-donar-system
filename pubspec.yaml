@@ -50,17 +50,18 @@ dependencies:
   google_fonts: ^3.0.1
   font_awesome_flutter: ^9.2.0
   uiblock: ^2.0.2
-  liquid_pull_to_refresh: ^3.0.1
+  # liquid_pull_to_refresh: ^3.0.1
   animations: ^2.0.4
 
   #authentication
   google_sign_in: ^5.4.1
   image_picker: ^0.8.5+3
   email_validator: ^2.0.1
-  flutter_speed_dial: ^6.0.0
+  # flutter_speed_dial: ^6.0.0
 
   #utils
-  flutter_email_sender: ^5.1.0
+  location: ^4.4.0
+  get: ^4.6.5
   # get_it: 7.1.4
 
 dev_dependencies:

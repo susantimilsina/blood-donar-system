@@ -33,7 +33,7 @@ class CompleteProfileView extends StatelessWidget {
                 GestureDetector(
                   onTap: model.selectImage,
                   child: const Text(
-                    'upload profile picture',
+                    'Upload Profile Picture',
                     style: TextStyle(color: Colors.green),
                   ),
                 ),

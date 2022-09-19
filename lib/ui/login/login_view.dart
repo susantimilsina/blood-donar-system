@@ -39,12 +39,24 @@ class LoginView extends StatelessWidget {
                 verticalSpaceSmall,
                 TextField(
                   keyboardType: TextInputType.text,
-                  obscureText: true,
                   controller: model.passwordController,
-                  decoration: const InputDecoration(
-                      hintText: 'Password',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)))),
+                  obscureText: !model.passwordVisible,
+                  decoration: InputDecoration(
+                    hintText: 'Password',
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          model.changeVisibility();
+                        },
+                        icon: Icon(
+                          model.passwordVisible
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: Colors.grey,
+                        )),
+                    border: const OutlineInputBorder(
+                        borderSide: BorderSide(width: 2.0),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                  ),
                 ),
                 verticalSpaceMedium,
                 GestureDetector(

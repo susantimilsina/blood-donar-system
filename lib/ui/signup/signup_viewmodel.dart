@@ -11,6 +11,13 @@ class SignupViewModel extends BaseViewModel {
   final SnackbarService _snackbarService = locator<SnackbarService>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool passwordVisible = false;
+
+  changeVisibility() {
+    passwordVisible = !passwordVisible;
+    notifyListeners();
+  }
+
   Future<void> createAccount() async {
     if (!EmailValidator.validate(emailController.text)) {
       _snackbarService.showSnackbar(message: 'enter a valid email !');

@@ -8,10 +8,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked/stacked_annotations.dart';
-
 import '../ui/EditProfile/edit_profile_view.dart';
-import '../ui/Page/page_view.dart';
 import '../ui/ViewProfile/viewprofile_view.dart';
 import '../ui/completeProfile/complete_profile_view.dart';
 import '../ui/home/home_view.dart';
@@ -26,7 +23,6 @@ class Routes {
   static const String signupView = '/signup-view';
   static const String loginView = '/login-view';
   static const String editProfileView = '/edit-profile-view';
-  static const String myPageView = '/my-page-view';
   static const String viewProfileView = '/view-profile-view';
   static const all = <String>{
     startUpView,
@@ -35,7 +31,6 @@ class Routes {
     signupView,
     loginView,
     editProfileView,
-    myPageView,
     viewProfileView,
   };
 }
@@ -50,7 +45,6 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.signupView, page: SignupView),
     RouteDef(Routes.loginView, page: LoginView),
     RouteDef(Routes.editProfileView, page: EditProfileView),
-    RouteDef(Routes.myPageView, page: MyPageView),
     RouteDef(Routes.viewProfileView, page: ViewProfileView),
   ];
   @override
@@ -89,12 +83,6 @@ class StackedRouter extends RouterBase {
     EditProfileView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const EditProfileView(),
-        settings: data,
-      );
-    },
-    MyPageView: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => const MyPageView(),
         settings: data,
       );
     },

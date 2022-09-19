@@ -42,11 +42,9 @@ class AuthenticationService {
     @required password,
   }) async {
     try {
-      print("here");
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      print("Exceptoon" + e.toString());
       if (e.code == 'weak-password') {
         _snackbarService.showSnackbar(message: 'password is too weak');
       } else if (e.code == 'email-already-in-use') {
@@ -97,11 +95,15 @@ class AuthenticationService {
     _navigationService.clearStackAndShow(Routes.loginView);
   }
 
+  void changeRoute(String route) {
+    _navigationService.navigateTo(route);
+  }
+
   Future populateUser({required String userId}) async {
     try {
       if (await _firestoreService.isUserPresent(uid: userId)) {
         _user = await _firestoreService.getUser(uid: userId);
-        _navigationService.clearStackAndShow(Routes.myPageView);
+        _navigationService.clearStackAndShow(Routes.homeView);
       } else {
         _navigationService.clearStackAndShow(Routes.completeProfileView);
       }

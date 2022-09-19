@@ -15,7 +15,7 @@ class StartUpViewModel extends BaseViewModel {
   void initialise() {
     _log.v(_authenticationService.isUserSignedIn);
     if (_authenticationService.isUserSignedIn) {
-      _navigationService.navigateTo(Routes.myPageView);
+      _navigationService.navigateTo(Routes.homeView);
     } else {
       _navigationService.navigateTo(Routes.loginView);
     }

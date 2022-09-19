@@ -40,10 +40,20 @@ class SignupView extends StatelessWidget {
             verticalSpaceSmall,
             TextField(
               controller: model.passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
+              obscureText: !model.passwordVisible,
+              decoration: InputDecoration(
                 hintText: 'Password',
-                border: OutlineInputBorder(
+                suffixIcon: IconButton(
+                    onPressed: () {
+                      model.changeVisibility();
+                    },
+                    icon: Icon(
+                      model.passwordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: Colors.grey,
+                    )),
+                border: const OutlineInputBorder(
                     borderSide: BorderSide(width: 2.0),
                     borderRadius: BorderRadius.all(Radius.circular(20))),
               ),

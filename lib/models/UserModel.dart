@@ -3,12 +3,14 @@ import 'dart:io';
 
 class UserModel {
   String userName;
-   String email;
+  String email;
   String bloodGroup;
-   String age;
+  String age;
   String role;
   String imageUrl;
   String imageFileName;
+  String latitude;
+  String longitude;
   UserModel({
     required this.userName,
     required this.email,
@@ -17,6 +19,8 @@ class UserModel {
     required this.role,
     required this.imageUrl,
     required this.imageFileName,
+    required this.latitude,
+    required this.longitude
   });
 
   UserModel copyWith({
@@ -27,6 +31,8 @@ class UserModel {
     String? role,
     String? imageUrl,
     String? imageFileName,
+    String? latitude,
+    String? longitude
   }) {
     return UserModel(
       userName: userName ?? this.userName,
@@ -36,6 +42,8 @@ class UserModel {
       role: role ?? this.role,
       imageUrl: imageUrl ?? this.imageUrl,
       imageFileName: imageFileName ?? this.imageFileName,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
     );
   }
 
@@ -47,6 +55,8 @@ class UserModel {
     result.addAll({'bloodGroup': bloodGroup});
     result.addAll({'age': age});
     result.addAll({'role': role});
+    result.addAll({'latitude': latitude});
+    result.addAll({'longitude': longitude});
     result.addAll({'imageUrl': imageUrl});
     result.addAll({'imageFileName': imageFileName});
 
@@ -62,6 +72,8 @@ class UserModel {
       role: map['role'] ?? '',
       imageUrl: map['imageUrl'] ?? '',
       imageFileName: map['imageFileName'] ?? '',
+      latitude: map['latitude'] ?? '0.0',
+      longitude: map['longitude'] ?? '0.0',
     );
   }
 
@@ -86,6 +98,8 @@ class UserModel {
         other.age == age &&
         other.role == role &&
         other.imageUrl == imageUrl &&
+        other.latitude == latitude &&
+        other.longitude == longitude &&
         other.imageFileName == imageFileName;
   }
 
@@ -97,6 +111,9 @@ class UserModel {
         age.hashCode ^
         role.hashCode ^
         imageUrl.hashCode ^
-        imageFileName.hashCode;
+        imageFileName.hashCode ^
+        latitude.hashCode ^
+        longitude.hashCode
+        ;
   }
 }
