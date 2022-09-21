@@ -76,9 +76,15 @@ class CompleteProfileViewModel extends BaseViewModel {
   TextEditingController ageController = TextEditingController();
   String selectedRole = "Doner";
   String selectedBloodgroup = "A+";
+  bool isAvailable = true;
   XFile? pickedImage;
   double? latitude;
   double? longitude;
+
+  void toggleAvailable() {
+    isAvailable = !isAvailable;
+    notifyListeners();
+  }
 
   void onChangedBloodgroup(String? newBloodgroup) {
     selectedBloodgroup = newBloodgroup ?? selectedBloodgroup;
@@ -174,7 +180,8 @@ class CompleteProfileViewModel extends BaseViewModel {
           imageUrl: cloudStorageResult.imageUrl,
           longitude: (longitude ?? 0.0).toString(),
           latitude: (latitude ?? 0.0).toString(),
-          imageFileName: cloudStorageResult.imageFileName);
+          imageFileName: cloudStorageResult.imageFileName,
+          isAvailable: isAvailable);
 
       await _firestoreService.createNewUserEntry(
           uid: _authenticationService.firebaseUser!.uid, user: user);

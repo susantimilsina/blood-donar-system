@@ -33,9 +33,10 @@ class FirestoreService {
     return documentSnapshot.exists;
   }
 
-  Future<List> fetchAllUsers() async {
+  Future<List<Map<String, dynamic>>> fetchAllUsers() async {
     var docref = await _userColletionreference.get();
-    final allDocs = docref.docs.map((e) => e.data()).toList();
+    final allDocs =
+        docref.docs.map((e) => e.data() as Map<String, dynamic>).toList();
     return allDocs;
   }
 }

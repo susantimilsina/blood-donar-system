@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:blood_doner/ui/completeProfile/complete_profile_viewmodel.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import '../shared/ui_helper.dart';
@@ -96,6 +97,22 @@ class CompleteProfileView extends StatelessWidget {
                   ],
                 ),
                 verticalSpaceSmall,
+                Row(
+                  children: [
+                    Text(
+                      'Available for donation',
+                      style:
+                          TextStyle(color: Colors.grey.shade700, fontSize: 16),
+                    ),
+                    horizontalSpaceLarge,
+                    CupertinoSwitch(
+                        value: model.isAvailable,
+                        onChanged: (value) {
+                          model.toggleAvailable();
+                        }),
+                  ],
+                ),
+                verticalSpaceLarge,
                 GestureDetector(
                   onTap: model.createUserinDb,
                   child: Container(

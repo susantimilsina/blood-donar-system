@@ -6,7 +6,7 @@ import '../../ui/shared/ui_helper.dart';
 
 // ignore: must_be_immutable
 class ViewProfileView extends StatelessWidget {
-  Map<String, String> userMap;
+  Map<String, dynamic> userMap;
   ViewProfileView(this.userMap, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ViewProfileView extends StatelessWidget {
           padding: const EdgeInsets.only(left: 32, top: 48, right: 24),
           child: Column(
               mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Align(
                   alignment: Alignment.center,
@@ -43,6 +43,17 @@ class ViewProfileView extends StatelessWidget {
                 ProfileInfoBar(data: 'Email : ${userMap['email']}'),
                 verticalSpaceMedium,
                 ProfileInfoBar(data: 'Role : ${userMap['role']}'),
+                verticalSpaceMedium,
+                (userMap["isAvailable"] ?? false)
+                    ? ElevatedButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Request for blood",
+                        ))
+                    : const Text(
+                        "User is not available to donate blood",
+                        style: TextStyle(color: Colors.red),
+                      )
               ]),
         ),
       ),

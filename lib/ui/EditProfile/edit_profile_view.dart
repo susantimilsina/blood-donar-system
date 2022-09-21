@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:blood_doner/ui/shared/ui_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:uiblock/uiblock.dart';
@@ -90,7 +91,25 @@ class EditProfileView extends StatelessWidget {
                   initialValue: model.getUserAge,
                   onChanged: (value) => age = value,
                 ),
-                const SizedBox(height: 190),
+                verticalSpaceMedium,
+                Row(
+                  children: [
+                    Text(
+                      'Available for donation',
+                      style:
+                          TextStyle(color: Colors.grey.shade700, fontSize: 16),
+                    ),
+                    horizontalSpaceLarge,
+                    CupertinoSwitch(
+                        value: model.hasAvailable == null
+                            ? model.getUserAvailability
+                            : model.hasAvailable ?? true,
+                        onChanged: (value) {
+                          model.toggleAvailable();
+                        }),
+                  ],
+                ),
+                verticalSpaceLarge,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -100,7 +119,9 @@ class EditProfileView extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       child: const Text("CANCEL",
                           style: TextStyle(
                               fontSize: 14,
