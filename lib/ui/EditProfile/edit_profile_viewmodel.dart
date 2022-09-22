@@ -41,6 +41,9 @@ class EditProfileViewModel extends BaseViewModel {
   String get getUserMail {
     return _authenticationService.user!.email;
   }
+  String get getUserRole {
+    return _authenticationService.user!.role;
+  }
 
   bool get getUserAvailability {
     return _authenticationService.user!.isAvailable;

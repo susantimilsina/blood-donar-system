@@ -12,10 +12,11 @@ class StartUpViewModel extends BaseViewModel {
       locator<AuthenticationService>();
   final NavigationService _navigationService = locator<NavigationService>();
   final Logger _log = getLogger('StartUpViewModel');
-  void initialise() {
+  Future<void> initialise() async {
     _log.v(_authenticationService.isUserSignedIn);
     if (_authenticationService.isUserSignedIn) {
-      _navigationService.navigateTo(Routes.homeView);
+      await _authenticationService.populateUser(
+          userId: _authenticationService.firebaseUser!.uid);
     } else {
       _navigationService.navigateTo(Routes.loginView);
     }

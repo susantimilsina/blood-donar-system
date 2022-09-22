@@ -64,6 +64,8 @@ dependencies:
   get: ^4.6.5
   analyzer: 3.4.1
   freezed: 2.0.3
+  firebase_messaging: ^13.0.2
+  http: ^0.13.5
 
   # get_it: 7.1.4
 

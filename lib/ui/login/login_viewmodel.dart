@@ -38,7 +38,6 @@ class LoginViewModel extends BaseViewModel {
             email: emailController.text,
             password: passwordController.text,
             val: selectedButton ?? 0);
-        _navigationService.clearStackAndShow(Routes.homeView);
       } catch (e) {
         _log.e(e);
       }

@@ -92,23 +92,24 @@ class EditProfileView extends StatelessWidget {
                   onChanged: (value) => age = value,
                 ),
                 verticalSpaceMedium,
-                Row(
-                  children: [
-                    Text(
-                      'Available for donation',
-                      style:
-                          TextStyle(color: Colors.grey.shade700, fontSize: 16),
-                    ),
-                    horizontalSpaceLarge,
-                    CupertinoSwitch(
-                        value: model.hasAvailable == null
-                            ? model.getUserAvailability
-                            : model.hasAvailable ?? true,
-                        onChanged: (value) {
-                          model.toggleAvailable();
-                        }),
-                  ],
-                ),
+                if (model.getUserRole.toLowerCase() != "patient")
+                  Row(
+                    children: [
+                      Text(
+                        'Available for donation',
+                        style: TextStyle(
+                            color: Colors.grey.shade700, fontSize: 16),
+                      ),
+                      horizontalSpaceLarge,
+                      CupertinoSwitch(
+                          value: model.hasAvailable == null
+                              ? model.getUserAvailability
+                              : model.hasAvailable ?? true,
+                          onChanged: (value) {
+                            model.toggleAvailable();
+                          }),
+                    ],
+                  ),
                 verticalSpaceLarge,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
