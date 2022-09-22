@@ -285,7 +285,7 @@
     },
     {
       "name": "freezed",
-      "rootUri": "file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/freezed-2.0.4",
+      "rootUri": "file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/freezed-2.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -764,7 +764,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-09-19T07:59:27.673217Z",
+  "generated": "2022-09-21T16:36:41.362940Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }

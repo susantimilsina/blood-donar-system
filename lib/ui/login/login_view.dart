@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import '../shared/ui_helper.dart';
 import 'login_viewmodel.dart';
+import 'option_radio_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -57,6 +58,33 @@ class LoginView extends StatelessWidget {
                         borderSide: BorderSide(width: 2.0),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                   ),
+                ),
+                verticalSpaceMedium,
+                Row(
+                  children: [
+                    const Text(
+                      'Login as :',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Expanded(
+                      child: OptionRadio(
+                          text: 'Patient',
+                          index: 0,
+                          selectedButton: model.selectedButton ?? 0,
+                          press: (val) {
+                            model.changeValue(val);
+                          }),
+                    ),
+                    Expanded(
+                      child: OptionRadio(
+                          text: 'Donor',
+                          index: 1,
+                          selectedButton: model.selectedButton ?? 0,
+                          press: (val) {
+                            model.changeValue(val);
+                          }),
+                    ),
+                  ],
                 ),
                 verticalSpaceMedium,
                 GestureDetector(

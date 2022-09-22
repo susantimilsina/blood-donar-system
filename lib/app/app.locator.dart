@@ -6,7 +6,6 @@
 
 // ignore_for_file: public_member_api_docs
 
-import 'package:get_it/get_it.dart';
 import 'package:stacked_core/stacked_core.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -14,19 +13,19 @@ import '../services/authentication_service.dart';
 import '../services/cloud_storage_service.dart';
 import '../services/firestore_service.dart';
 import '../services/image_selector.dart';
+import '../ui/donor/donor_view_model.dart';
 import '../ui/home/home_viewmodel.dart';
 
-final locator = GetIt.instance;
+final locator = StackedLocator.instance;
 
 Future<void> setupLocator(
     {String? environment, EnvironmentFilter? environmentFilter}) async {
 // Register environments
-  // locator.registerEnvironment(
-  //     environment: environment, environmentFilter: environmentFilter);
+  locator.registerEnvironment(
+      environment: environment, environmentFilter: environmentFilter);
 
 // Register dependencies
   locator.registerLazySingleton(() => NavigationService());
-  locator.registerLazySingleton(() => AuthenticationService());
   locator.registerLazySingleton(() => BottomSheetService());
   locator.registerLazySingleton(() => SnackbarService());
   locator.registerLazySingleton(() => DialogService());
@@ -35,4 +34,5 @@ Future<void> setupLocator(
   locator.registerLazySingleton(() => CloudStorageService());
   locator.registerSingleton(AuthenticationService());
   locator.registerLazySingleton(() => HomeViewModel());
+  locator.registerLazySingleton(() => DonorViewModel());
 }

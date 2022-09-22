@@ -14,22 +14,30 @@ class LoginViewModel extends BaseViewModel {
   final SnackbarService _snackbarService = locator<SnackbarService>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-    bool passwordVisible = false;
+  bool passwordVisible = false;
+  int? selectedButton;
 
   changeVisibility() {
     passwordVisible = !passwordVisible;
     notifyListeners();
   }
+
+  changeValue(int value) {
+    selectedButton = value;
+    notifyListeners();
+  }
+
   final Logger _log = getLogger('LoginViewModel');
   void loginViaEmail() async {
     setBusy(true);
     if (emailController.text.isEmpty || passwordController.text.isEmpty) {
-      _snackbarService.showSnackbar(
-          message: 'please enter all the details');
+      _snackbarService.showSnackbar(message: 'please enter all the details');
     } else {
       try {
         await _authenticationService.loginWithEmail(
-            email: emailController.text, password: passwordController.text);
+            email: emailController.text,
+            password: passwordController.text,
+            val: selectedButton ?? 0);
         _navigationService.clearStackAndShow(Routes.homeView);
       } catch (e) {
         _log.e(e);

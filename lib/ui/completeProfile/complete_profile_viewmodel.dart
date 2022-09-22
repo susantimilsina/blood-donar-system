@@ -60,9 +60,9 @@ class CompleteProfileViewModel extends BaseViewModel {
   ];
   final roleList = [
     const DropdownMenuItem(
-      value: "Doner",
+      value: "Donor",
       child: Center(
-        child: Text('Doner'),
+        child: Text('Donor'),
       ),
     ),
     const DropdownMenuItem(
@@ -74,7 +74,7 @@ class CompleteProfileViewModel extends BaseViewModel {
   ];
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
-  String selectedRole = "Doner";
+  String selectedRole = "Donor";
   String selectedBloodgroup = "A+";
   bool isAvailable = true;
   XFile? pickedImage;
@@ -149,7 +149,7 @@ class CompleteProfileViewModel extends BaseViewModel {
 
     var loc = await location.getLocation();
     latitude = loc.latitude;
-    longitude = loc.latitude;
+    longitude = loc.longitude;
     notifyListeners();
   }
 
@@ -174,7 +174,7 @@ class CompleteProfileViewModel extends BaseViewModel {
       final user = UserModel(
           userName: nameController.text.trim(),
           email: _authenticationService.firebaseUser!.email!,
-          bloodGroup: selectedBloodgroup,
+          bloodGroup: selectedRole == "Donor" ? selectedBloodgroup : "",
           age: ageController.text.trim(),
           role: selectedRole,
           imageUrl: cloudStorageResult.imageUrl,

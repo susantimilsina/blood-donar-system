@@ -9,7 +9,7 @@ packages:
     source: hosted
     version: "38.0.0"
   analyzer:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: analyzer
       url: "https://pub.dartlang.org"
@@ -325,12 +325,12 @@ packages:
     source: hosted
     version: "9.2.0"
   freezed:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: freezed
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "2.0.3"
   freezed_annotation:
     dependency: transitive
     description:
