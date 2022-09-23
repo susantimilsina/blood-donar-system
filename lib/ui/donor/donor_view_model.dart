@@ -7,6 +7,7 @@ import 'package:stacked/stacked.dart';
 import '../../app/app.locator.dart';
 import '../../app/app.router.dart';
 import '../../services/authentication_service.dart';
+import '../component/toast.dart';
 
 class DonorViewModel extends BaseViewModel {
   DonorViewModel() {
@@ -41,6 +42,7 @@ class DonorViewModel extends BaseViewModel {
       String body = message.data['body'] ?? message.notification?.body ?? "";
       log("Titel" + title.toString());
       log("body" + body.toString());
+      ToastComponent.toast("$title \n$body");
     });
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       log("Remote" + message.toString());

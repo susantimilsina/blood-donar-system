@@ -156,8 +156,12 @@ class HomeView extends StatelessWidget {
                                                         if (_formKey
                                                             .currentState!
                                                             .validate()) {
-                                                          model
-                                                              .sendNotification();
+                                                          {
+                                                            model
+                                                                .sendNotification();
+                                                            Navigator.pop(
+                                                                context);
+                                                          }
                                                         }
                                                       },
                                                     ),

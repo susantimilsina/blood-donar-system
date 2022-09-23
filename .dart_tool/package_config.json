@@ -518,6 +518,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "oktoast",
+      "rootUri": "file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/oktoast-3.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "package_config",
       "rootUri": "file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/package_config-2.1.0",
       "packageUri": "lib/",
@@ -782,7 +788,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-09-23T12:44:27.342491Z",
+  "generated": "2022-09-23T13:26:39.643384Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }

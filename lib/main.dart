@@ -2,6 +2,7 @@ import 'package:blood_doner/ui/shared/setup_snackbar_ui.dart';
 import 'package:blood_doner/ui/shared/setup_dialog_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:blood_doner/app/app.locator.dart';
 import 'app/app.router.dart';
@@ -34,22 +35,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-        textTheme: TextTheme(
-          bodyText1: GoogleFonts.karla(),
-          headlineLarge: GoogleFonts.bebasNeue(),
+    return OKToast(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+          textTheme: TextTheme(
+            bodyText1: GoogleFonts.karla(),
+            headlineLarge: GoogleFonts.bebasNeue(),
+          ),
         ),
+        navigatorObservers: [
+          StackedService.routeObserver,
+          // _LoggingObserver(),
+        ],
+        initialRoute: Routes.startUpView,
+        navigatorKey: StackedService.navigatorKey,
+        onGenerateRoute: StackedRouter().onGenerateRoute,
       ),
-      navigatorObservers: [
-        StackedService.routeObserver,
-        // _LoggingObserver(),
-      ],
-      initialRoute: Routes.startUpView,
-      navigatorKey: StackedService.navigatorKey,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
     );
   }
 }
