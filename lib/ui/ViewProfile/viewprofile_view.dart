@@ -10,6 +10,8 @@ class ViewProfileView extends StatelessWidget {
   ViewProfileView(this.userMap, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
+
     return ViewModelBuilder<ViewProfileViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         body: Padding(
@@ -46,7 +48,91 @@ class ViewProfileView extends StatelessWidget {
                 verticalSpaceMedium,
                 (userMap["isAvailable"] ?? false)
                     ? ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  content: Stack(
+                                    children: <Widget>[
+                                      Form(
+                                        key: _formKey,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            const Text(
+                                              'Purpose you need blood',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 16),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 8.0),
+                                              child: TextField(
+                                                controller:
+                                                    model.purposeController,
+                                                keyboardType:
+                                                    TextInputType.text,
+                                                // controller: model.emailController,
+                                                decoration:
+                                                    const InputDecoration(
+                                                  hintText: 'Purpose',
+                                                ),
+                                              ),
+                                            ),
+                                            Row(
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: ElevatedButton(
+                                                    child: Text("Cancel"),
+                                                    style: ButtonStyle(
+                                                        backgroundColor:
+                                                            MaterialStateProperty
+                                                                .all(Colors.grey
+                                                                    .shade100)),
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: ElevatedButton(
+                                                    style: ButtonStyle(
+                                                        backgroundColor:
+                                                            MaterialStateProperty
+                                                                .all(Colors
+                                                                    .green)),
+                                                    child: const Text("Submit"),
+                                                    onPressed: () {
+                                                      if (_formKey.currentState!
+                                                          .validate()) {
+                                                        model.sendNotification(
+                                                            userMap[
+                                                                'bloodGroup']);
+                                                        Navigator.pop(context);
+                                                      }
+                                                    },
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              });
+                        },
                         child: const Text(
                           "Request for blood",
                         ))

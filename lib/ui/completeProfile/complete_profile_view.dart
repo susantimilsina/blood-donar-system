@@ -97,22 +97,23 @@ class CompleteProfileView extends StatelessWidget {
                   ],
                 ),
                 verticalSpaceSmall,
-                if (model.selectedRole.toString().toLowerCase().startsWith("d"))
-                  Row(
-                    children: [
-                      Text(
-                        'Available for donation',
-                        style: TextStyle(
-                            color: Colors.grey.shade700, fontSize: 16),
-                      ),
-                      horizontalSpaceLarge,
-                      CupertinoSwitch(
-                          value: model.isAvailable,
-                          onChanged: (value) {
-                            model.toggleAvailable();
-                          }),
-                    ],
-                  ),
+                model.selectedRole == "Donor"
+                    ? Row(
+                        children: [
+                          Text(
+                            'Available for donation',
+                            style: TextStyle(
+                                color: Colors.grey.shade700, fontSize: 16),
+                          ),
+                          horizontalSpaceLarge,
+                          CupertinoSwitch(
+                              value: model.isAvailable,
+                              onChanged: (value) {
+                                model.toggleAvailable();
+                              }),
+                        ],
+                      )
+                    : Container(),
                 verticalSpaceLarge,
                 GestureDetector(
                   onTap: model.createUserinDb,

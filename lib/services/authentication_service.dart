@@ -21,6 +21,7 @@ class AuthenticationService {
   User? get firebaseUser => _firebaseUser;
   UserModel? get user => _user;
   bool get isUserSignedIn => _isuserSignedin;
+  int? value;
 
   AuthenticationService() {
     _firebaseAuth.authStateChanges().listen((User? user) async {
@@ -56,7 +57,9 @@ class AuthenticationService {
     }
   }
 
-  Future<void> loginWithEmail({@required email, @required password}) async {
+  Future<void> loginWithEmail(
+      {@required email, @required password, required int val}) async {
+    value = val;
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
@@ -103,7 +106,12 @@ class AuthenticationService {
     try {
       if (await _firestoreService.isUserPresent(uid: userId)) {
         _user = await _firestoreService.getUser(uid: userId);
-        _navigationService.clearStackAndShow(Routes.homeView);
+        print("User role ${user?.role}");
+        if (user?.role != null && user?.role.toLowerCase() == "patient") {
+          _navigationService.clearStackAndShow(Routes.homeView);
+        } else {
+          _navigationService.clearStackAndShow(Routes.donorView);
+        }
       } else {
         _navigationService.clearStackAndShow(Routes.completeProfileView);
       }

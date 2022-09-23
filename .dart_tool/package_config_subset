@@ -148,8 +148,25 @@ file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/fireba
 file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.5.1/lib/
 firebase_core_web
 2.16
+<<<<<<< HEAD
 file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.7.2/
 file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.7.2/lib/
+=======
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.7.2/
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.7.2/lib/
+firebase_messaging
+2.16
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-13.0.2/
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-13.0.2/lib/
+firebase_messaging_platform_interface
+2.16
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_platform_interface-4.1.4/
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_platform_interface-4.1.4/lib/
+firebase_messaging_web
+2.16
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_web-3.1.4/
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_web-3.1.4/lib/
+>>>>>>> 3d916ceae41114a6f8f4a760a8d630641bbc512f
 firebase_storage
 2.16
 file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.3.8/
@@ -176,8 +193,21 @@ file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutte
 file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.7/lib/
 font_awesome_flutter
 2.12
+<<<<<<< HEAD
 file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-9.2.0/
 file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-9.2.0/lib/
+=======
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-9.2.0/
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-9.2.0/lib/
+freezed
+2.14
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/freezed-2.0.3/
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/freezed-2.0.3/lib/
+freezed_annotation
+2.14
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/freezed_annotation-2.1.0/
+file:///Users/susantimilsina/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/freezed_annotation-2.1.0/lib/
+>>>>>>> 3d916ceae41114a6f8f4a760a8d630641bbc512f
 frontend_server_client
 2.12
 file:///Users/anuprazapati/dev/flutter/.pub-cache/hosted/pub.dartlang.org/frontend_server_client-2.1.3/

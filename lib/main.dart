@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         StackedService.routeObserver,
         // _LoggingObserver(),
       ],
-      initialRoute: Routes.loginView,
+      initialRoute: Routes.startUpView,
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
     );

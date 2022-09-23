@@ -16,6 +16,7 @@ import '../services/authentication_service.dart';
 import '../services/cloud_storage_service.dart';
 import '../services/firestore_service.dart';
 import '../services/image_selector.dart';
+import '../ui/donor/donor_view_model.dart';
 import '../ui/home/home_viewmodel.dart';
 
 final locator = StackedLocator.instance;
@@ -36,4 +37,5 @@ Future<void> setupLocator(
   locator.registerLazySingleton(() => CloudStorageService());
   locator.registerSingleton(AuthenticationService());
   locator.registerLazySingleton(() => HomeViewModel());
+  locator.registerLazySingleton(() => DonorViewModel());
 }

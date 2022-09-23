@@ -15,6 +15,7 @@ import 'package:blood_doner/ui/startup/startup_view.dart' as _i2;
 import 'package:blood_doner/ui/ViewProfile/viewprofile_view.dart' as _i8;
 import 'package:flutter/cupertino.dart' as _i9;
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i10;
 
@@ -33,6 +34,29 @@ class Routes {
 
   static const viewProfileView = '/view-profile-view';
 
+=======
+import 'package:stacked/stacked.dart';
+import 'package:stacked/stacked_annotations.dart';
+
+import '../ui/EditProfile/edit_profile_view.dart';
+import '../ui/ViewProfile/viewprofile_view.dart';
+import '../ui/completeProfile/complete_profile_view.dart';
+import '../ui/donor/donor_view.dart';
+import '../ui/home/home_view.dart';
+import '../ui/login/login_view.dart';
+import '../ui/signup/signup_view.dart';
+import '../ui/startup/startup_view.dart';
+
+class Routes {
+  static const String startUpView = '/';
+  static const String homeView = '/home-view';
+  static const String completeProfileView = '/complete-profile-view';
+  static const String signupView = '/signup-view';
+  static const String loginView = '/login-view';
+  static const String editProfileView = '/edit-profile-view';
+  static const String viewProfileView = '/view-profile-view';
+  static const String donorView = '/donor-view';
+>>>>>>> 3d916ceae41114a6f8f4a760a8d630641bbc512f
   static const all = <String>{
     startUpView,
     homeView,
@@ -40,6 +64,7 @@ class Routes {
     signupView,
     loginView,
     editProfileView,
+<<<<<<< HEAD
     viewProfileView
   };
 }
@@ -53,6 +78,25 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(Routes.loginView, page: _i6.LoginView),
     _i1.RouteDef(Routes.editProfileView, page: _i7.EditProfileView),
     _i1.RouteDef(Routes.viewProfileView, page: _i8.ViewProfileView)
+=======
+    viewProfileView,
+    donorView,
+  };
+}
+
+class StackedRouter extends RouterBase {
+  @override
+  List<RouteDef> get routes => _routes;
+  final _routes = <RouteDef>[
+    RouteDef(Routes.startUpView, page: StartUpView),
+    RouteDef(Routes.homeView, page: HomeView),
+    RouteDef(Routes.completeProfileView, page: CompleteProfileView),
+    RouteDef(Routes.signupView, page: SignupView),
+    RouteDef(Routes.loginView, page: LoginView),
+    RouteDef(Routes.editProfileView, page: EditProfileView),
+    RouteDef(Routes.viewProfileView, page: ViewProfileView),
+    RouteDef(Routes.donorView, page: DonorView),
+>>>>>>> 3d916ceae41114a6f8f4a760a8d630641bbc512f
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
@@ -98,7 +142,17 @@ class StackedRouter extends _i1.RouterBase {
         builder: (context) => _i8.ViewProfileView(args.userMap, key: args.key),
         settings: data,
       );
+<<<<<<< HEAD
     }
+=======
+    },
+    DonorView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const DonorView(),
+        settings: data,
+      );
+    },
+>>>>>>> 3d916ceae41114a6f8f4a760a8d630641bbc512f
   };
 
   @override
@@ -108,6 +162,7 @@ class StackedRouter extends _i1.RouterBase {
 }
 
 class ViewProfileViewArguments {
+<<<<<<< HEAD
   const ViewProfileViewArguments({required this.userMap, this.key});
 
   final Map<String, dynamic> userMap;
@@ -216,4 +271,9 @@ extension NavigatorStateExtension on _i10.NavigationService {
         parameters: parameters,
         transition: transition);
   }
+=======
+  final Map<String, dynamic> userMap;
+  final Key? key;
+  ViewProfileViewArguments({required this.userMap, this.key});
+>>>>>>> 3d916ceae41114a6f8f4a760a8d630641bbc512f
 }

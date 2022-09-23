@@ -35,8 +35,8 @@ dependencies:
   stacked: ^2.3.3
   stacked_generator: ^0.8.0
   # stacked_generator: ^0.6.2
-  stacked_services: ^0.8.17
-  build_runner: ^2.1.10
+  it: ^0.8.17
+  build_runner: ^2.1.7
 
   #firebase
   firebase_auth: ^3.3.15
@@ -63,6 +63,11 @@ dependencies:
   #utils
   location: ^4.4.0
   get: ^4.6.5
+  analyzer: 3.4.1
+  freezed: 2.0.3
+  firebase_messaging: ^13.0.2
+  http: ^0.13.5
+
   # get_it: 7.1.4
 
 dev_dependencies:
