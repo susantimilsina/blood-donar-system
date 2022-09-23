@@ -10,7 +10,7 @@ class ViewProfileView extends StatelessWidget {
   ViewProfileView(this.userMap, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-        final _formKey = GlobalKey<FormState>();
+    final _formKey = GlobalKey<FormState>();
 
     return ViewModelBuilder<ViewProfileViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
@@ -49,7 +49,7 @@ class ViewProfileView extends StatelessWidget {
                 (userMap["isAvailable"] ?? false)
                     ? ElevatedButton(
                         onPressed: () {
-                            Navigator.pop(context);
+                          Navigator.pop(context);
                           showDialog(
                               context: context,
                               builder: (BuildContext context) {
@@ -115,8 +115,10 @@ class ViewProfileView extends StatelessWidget {
                                                     onPressed: () {
                                                       if (_formKey.currentState!
                                                           .validate()) {
-                                                        model
-                                                            .sendNotification(userMap['bloodGroup']);
+                                                        model.sendNotification(
+                                                            userMap[
+                                                                'bloodGroup']);
+                                                        Navigator.pop(context);
                                                       }
                                                     },
                                                   ),
@@ -130,7 +132,6 @@ class ViewProfileView extends StatelessWidget {
                                   ),
                                 );
                               });
-                        
                         },
                         child: const Text(
                           "Request for blood",

@@ -18,7 +18,7 @@ class ViewProfileViewModel extends BaseViewModel {
     const String serverToken =
         "AAAAJ_1Hx6E:APA91bEfyBWeWgRrNRRu6UInbILbuVOoNaLF_Asf4Y5X0BJJOSMbNgEuEibkumEkyrEtDYiyNoSUsI7k28Zg54bjiicukJYV8GQgrHgkMKa6V_5QxVE6Yjv1qqm_8wBsfSF57UuP5Lca";
     String title = "${_authenticationService.user?.userName} is need of blood";
-    await http.post(
+    var resonse = await http.post(
       Uri.parse('https://fcm.googleapis.com/fcm/send'),
       headers: <String, String>{
         'Content-Type': 'application/json',
@@ -31,9 +31,11 @@ class ViewProfileViewModel extends BaseViewModel {
             'title': title,
           },
           'priority': 'high',
-          'to': selectedBloodgroup.replaceAll("+", ""),
+          'to': "/" + selectedBloodgroup.replaceAll("+", ""),
         },
       ),
     );
+    print("response " + resonse.body.toString());
+    print("to" + selectedBloodgroup.replaceAll("+", ""));
   }
 }

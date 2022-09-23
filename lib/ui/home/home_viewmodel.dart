@@ -174,7 +174,9 @@ class HomeViewModel extends FutureViewModel {
     userList = await _firestoreService.fetchAllUsers();
     await _initLocationService();
     userList = userList
-        .where((element) => element["role"].toString().toLowerCase() == "doner")
+        .where((element) =>
+            (element["role"].toString().toLowerCase() == "doner" ||
+                element["role"].toString().toLowerCase() == "donor"))
         .toList();
     displayList = [...userList];
     notifyListeners();
