@@ -61,6 +61,7 @@ class LoginView extends StatelessWidget {
                 ),
                 verticalSpaceMedium,
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       'Login as :',

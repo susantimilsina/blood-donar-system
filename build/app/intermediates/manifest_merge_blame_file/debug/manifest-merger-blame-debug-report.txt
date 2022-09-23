@@ -5,7 +5,7 @@
 5    android:versionName="1.0.0" >
 6
 7    <uses-sdk
-8        android:minSdkVersion="19"
+8        android:minSdkVersion="21"
 9        android:targetSdkVersion="31" />
 10    <!--
 11         The INTERNET permission is required for development. Specifically,
@@ -42,280 +42,464 @@
 26-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:9:68-92
 27
 28    <queries>
-28-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:42:5-47:13
+28-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:10:3-23:15
 29        <intent>
-29-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:43:5-46:14
-30            <action android:name="android.intent.action.SENDTO" />
-30-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:44:7-61
-30-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:44:15-58
+29-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:11:9-14:18
+30            <action android:name="android.intent.action.VIEW" />
+30-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:12:13-65
+30-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:12:21-62
 31
-32            <data android:scheme="mailto" />
-32-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:45:7-39
-32-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:45:13-36
+32            <data android:scheme="https" />
+32-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:13-44
+32-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:19-41
 33        </intent>
-34    </queries>
-35
-36    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-36-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
-36-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-78
-37    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-37-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:24:5-79
-37-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:24:22-76
-38
-39    <application
-40        android:name="android.app.Application"
-41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-41-->[androidx.core:core:1.8.0] /Users/anuprazapati/.gradle/caches/transforms-3/507db748440bce95909c434a56d22892/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
-42        android:debuggable="true"
-43        android:icon="@mipmap/ic_launcher"
-44        android:label="blood_doner" >
-45        <activity
-46            android:name="com.example.blood_doner.MainActivity"
-47            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-48            android:exported="true"
-49            android:hardwareAccelerated="true"
-50            android:launchMode="singleTop"
-51            android:theme="@style/LaunchTheme"
-52            android:windowSoftInputMode="adjustResize" >
-53
-54            <!--
-55                 Specifies an Android theme to apply to this Activity as soon as
-56                 the Android process has started. This theme is visible to the user
-57                 while the Flutter UI initializes. After that, this theme continues
-58                 to determine the Window background behind the Flutter UI.
-59            -->
-60            <meta-data
-61                android:name="io.flutter.embedding.android.NormalTheme"
-62                android:resource="@style/NormalTheme" />
-63
-64            <intent-filter>
-65                <action android:name="android.intent.action.MAIN" />
-66
-67                <category android:name="android.intent.category.LAUNCHER" />
-68            </intent-filter>
-69        </activity>
-70        <!--
-71             Don't delete the meta-data below.
-72             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-73        -->
-74        <meta-data
-75            android:name="flutterEmbedding"
-76            android:value="2" />
-77
-78        <service
-78-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
-79            android:name="com.google.firebase.components.ComponentDiscoveryService"
-79-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
-80            android:directBootAware="true"
-80-->[com.google.firebase:firebase-common:20.1.1] /Users/anuprazapati/.gradle/caches/transforms-3/6a4c6d1c6c123dd0fc5c77c2fb3649c5/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:35:13-43
-81            android:exported="false" >
-81-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:66:13-37
-82            <meta-data
-82-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
-83                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-83-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
-84                android:value="com.google.firebase.components.ComponentRegistrar" />
-84-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
-85            <meta-data
-85-->[:firebase_storage] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
-86                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
-86-->[:firebase_storage] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-126
-87                android:value="com.google.firebase.components.ComponentRegistrar" />
-87-->[:firebase_storage] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
-88            <meta-data
-88-->[:cloud_firestore] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
-89                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-89-->[:cloud_firestore] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
-90                android:value="com.google.firebase.components.ComponentRegistrar" />
-90-->[:cloud_firestore] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
-91            <meta-data
-91-->[:firebase_core] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
-92                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-92-->[:firebase_core] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
-93                android:value="com.google.firebase.components.ComponentRegistrar" />
-93-->[:firebase_core] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
-94            <meta-data
-94-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:67:13-69:85
-95                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-95-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:68:17-109
-96                android:value="com.google.firebase.components.ComponentRegistrar" />
-96-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:69:17-82
-97            <meta-data
-97-->[com.google.firebase:firebase-firestore:24.2.2] /Users/anuprazapati/.gradle/caches/transforms-3/7a1e52ce2fefd4c765c2884b079045f4/transformed/jetified-firebase-firestore-24.2.2/AndroidManifest.xml:20:13-22:85
-98                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-98-->[com.google.firebase:firebase-firestore:24.2.2] /Users/anuprazapati/.gradle/caches/transforms-3/7a1e52ce2fefd4c765c2884b079045f4/transformed/jetified-firebase-firestore-24.2.2/AndroidManifest.xml:21:17-111
-99                android:value="com.google.firebase.components.ComponentRegistrar" />
-99-->[com.google.firebase:firebase-firestore:24.2.2] /Users/anuprazapati/.gradle/caches/transforms-3/7a1e52ce2fefd4c765c2884b079045f4/transformed/jetified-firebase-firestore-24.2.2/AndroidManifest.xml:22:17-82
-100            <meta-data
-100-->[com.google.firebase:firebase-storage:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/85576d22b635c049f61406729d9cfb26/transformed/jetified-firebase-storage-20.0.1/AndroidManifest.xml:33:13-35:85
-101                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
-101-->[com.google.firebase:firebase-storage:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/85576d22b635c049f61406729d9cfb26/transformed/jetified-firebase-storage-20.0.1/AndroidManifest.xml:34:17-107
-102                android:value="com.google.firebase.components.ComponentRegistrar" />
-102-->[com.google.firebase:firebase-storage:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/85576d22b635c049f61406729d9cfb26/transformed/jetified-firebase-storage-20.0.1/AndroidManifest.xml:35:17-82
-103        </service>
-104
-105        <provider
-105-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-18:20
-106            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-106-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-82
-107            android:authorities="com.example.blood_doner.flutter.image_provider"
-107-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-74
-108            android:exported="false"
-108-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
-109            android:grantUriPermissions="true" >
-109-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-47
-110            <meta-data
-110-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-17:75
-111                android:name="android.support.FILE_PROVIDER_PATHS"
-111-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-67
-112                android:resource="@xml/flutter_image_picker_file_paths" />
-112-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-72
-113        </provider>
-114
-115        <service
-115-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-17:56
-116            android:name="com.lyokone.location.FlutterLocationService"
-116-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-71
-117            android:enabled="true"
-117-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-35
-118            android:exported="false"
-118-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
-119            android:foregroundServiceType="location" />
-119-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-53
-120
-121        <uses-library
-121-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-122            android:name="androidx.window.extensions"
-122-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-123            android:required="false" />
-123-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-124        <uses-library
-124-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-125            android:name="androidx.window.sidecar"
-125-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-126            android:required="false" />
-126-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-127
-128        <activity
-128-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:27:9-44:20
-129            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-129-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:28:13-80
-130            android:excludeFromRecents="true"
-130-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:29:13-46
-131            android:exported="true"
-131-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:30:13-36
-132            android:launchMode="singleTask"
-132-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:31:13-44
-133            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-133-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:32:13-72
-134            <intent-filter>
-134-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:33:13-43:29
-135                <action android:name="android.intent.action.VIEW" />
-135-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:34:17-69
-135-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:34:25-66
-136
-137                <category android:name="android.intent.category.DEFAULT" />
-137-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:36:17-76
-137-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:36:27-73
-138                <category android:name="android.intent.category.BROWSABLE" />
-138-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:37:17-78
-138-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:37:27-75
-139
-140                <data
-140-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:45:7-39
-141                    android:host="firebase.auth"
-142                    android:path="/"
-143                    android:scheme="genericidp" />
-143-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:45:13-36
-144            </intent-filter>
-145        </activity>
-146        <activity
-146-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:45:9-62:20
-147            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-147-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:46:13-79
-148            android:excludeFromRecents="true"
-148-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:47:13-46
-149            android:exported="true"
-149-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:48:13-36
-150            android:launchMode="singleTask"
-150-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:49:13-44
-151            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-151-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:50:13-72
+34        <intent>
+34-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:15:9-18:18
+35            <action android:name="android.intent.action.DIAL" />
+35-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:16:13-65
+35-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:16:21-62
+36
+37            <data android:scheme="tel" />
+37-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:13-44
+37-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:19-41
+38        </intent>
+39        <intent>
+39-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:19:9-22:18
+40            <action android:name="android.intent.action.SEND" />
+40-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:20:13-65
+40-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:20:21-62
+41
+42            <data android:mimeType="*/*" />
+42-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:13-44
+43        </intent>
+44    </queries>
+45    <queries>
+45-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:10:3-23:15
+46        <intent>
+47            <action android:name="android.intent.action.SENDTO" />
+48
+49            <data android:scheme="mailto" />
+49-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:13-44
+49-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:19-41
+50        </intent>
+51    </queries>
+52
+53    <uses-permission android:name="android.permission.WAKE_LOCK" />
+53-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-68
+53-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-65
+54    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permissions options for the `notification` group -->
+54-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-79
+54-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-76
+55    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+55-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-77
+55-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:22-74
+56    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+56-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
+56-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-78
+57    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+57-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:29:5-82
+57-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:29:22-79
+58
+59    <application
+60        android:name="android.app.Application"
+61        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+61-->[androidx.core:core:1.8.0] /Users/anuprazapati/.gradle/caches/transforms-3/507db748440bce95909c434a56d22892/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+62        android:debuggable="true"
+63        android:icon="@mipmap/ic_launcher"
+64        android:label="blood_doner" >
+65        <activity
+66            android:name="com.example.blood_doner.MainActivity"
+67            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+68            android:exported="true"
+69            android:hardwareAccelerated="true"
+70            android:launchMode="singleTop"
+71            android:theme="@style/LaunchTheme"
+72            android:windowSoftInputMode="adjustResize" >
+73
+74            <!--
+75                 Specifies an Android theme to apply to this Activity as soon as
+76                 the Android process has started. This theme is visible to the user
+77                 while the Flutter UI initializes. After that, this theme continues
+78                 to determine the Window background behind the Flutter UI.
+79            -->
+80            <meta-data
+81                android:name="io.flutter.embedding.android.NormalTheme"
+82                android:resource="@style/NormalTheme" />
+83
+84            <intent-filter>
+85                <action android:name="android.intent.action.MAIN" />
+86
+87                <category android:name="android.intent.category.LAUNCHER" />
+88            </intent-filter>
+89            <intent-filter>
+90                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+91
+92                <category android:name="android.intent.category.DEFAULT" />
+92-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:36:17-76
+92-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:36:27-73
+93            </intent-filter>
+94        </activity>
+95        <!--
+96             Don't delete the meta-data below.
+97             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+98        -->
+99
+100        <meta-data
+101            android:name="com.google.firebase.messaging.default_notification_channel_id"
+102            android:value="@string/default_notification_channel_id" />
+103        <meta-data
+104            android:name="flutterEmbedding"
+105            android:value="2" />
+106
+107        <service
+107-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+108            android:name="com.google.firebase.components.ComponentDiscoveryService"
+108-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
+109            android:directBootAware="true"
+109-->[com.google.firebase:firebase-common:20.1.2] /Users/anuprazapati/.gradle/caches/transforms-3/e50eb525a095d1ad27cca716f3eac65b/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:35:13-43
+110            android:exported="false" >
+110-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:55:13-37
+111            <meta-data
+111-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+112                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+112-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+113                android:value="com.google.firebase.components.ComponentRegistrar" />
+113-->[:firebase_auth] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+114            <meta-data
+114-->[:firebase_storage] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+115                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+115-->[:firebase_storage] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-126
+116                android:value="com.google.firebase.components.ComponentRegistrar" />
+116-->[:firebase_storage] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+117            <meta-data
+117-->[:cloud_firestore] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+118                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+118-->[:cloud_firestore] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
+119                android:value="com.google.firebase.components.ComponentRegistrar" />
+119-->[:cloud_firestore] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+120            <meta-data
+120-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-40:85
+121                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+121-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:39:17-128
+122                android:value="com.google.firebase.components.ComponentRegistrar" />
+122-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:40:17-82
+123            <meta-data
+123-->[:firebase_core] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+124                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+124-->[:firebase_core] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+125                android:value="com.google.firebase.components.ComponentRegistrar" />
+125-->[:firebase_core] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+126            <meta-data
+126-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:56:13-58:85
+127                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+127-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:57:17-119
+128                android:value="com.google.firebase.components.ComponentRegistrar" />
+128-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:58:17-82
+129            <meta-data
+129-->[com.google.firebase:firebase-datatransport:18.1.6] /Users/anuprazapati/.gradle/caches/transforms-3/99a5c37cb148372b2413207ba5f5bf8e/transformed/jetified-firebase-datatransport-18.1.6/AndroidManifest.xml:28:13-30:85
+130                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+130-->[com.google.firebase:firebase-datatransport:18.1.6] /Users/anuprazapati/.gradle/caches/transforms-3/99a5c37cb148372b2413207ba5f5bf8e/transformed/jetified-firebase-datatransport-18.1.6/AndroidManifest.xml:29:17-115
+131                android:value="com.google.firebase.components.ComponentRegistrar" />
+131-->[com.google.firebase:firebase-datatransport:18.1.6] /Users/anuprazapati/.gradle/caches/transforms-3/99a5c37cb148372b2413207ba5f5bf8e/transformed/jetified-firebase-datatransport-18.1.6/AndroidManifest.xml:30:17-82
+132            <meta-data
+132-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:67:13-69:85
+133                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+133-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:68:17-109
+134                android:value="com.google.firebase.components.ComponentRegistrar" />
+134-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:69:17-82
+135            <meta-data
+135-->[com.google.firebase:firebase-firestore:24.3.1] /Users/anuprazapati/.gradle/caches/transforms-3/3844c8ed27e966e6fb6056a976cc283c/transformed/jetified-firebase-firestore-24.3.1/AndroidManifest.xml:20:13-22:85
+136                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+136-->[com.google.firebase:firebase-firestore:24.3.1] /Users/anuprazapati/.gradle/caches/transforms-3/3844c8ed27e966e6fb6056a976cc283c/transformed/jetified-firebase-firestore-24.3.1/AndroidManifest.xml:21:17-111
+137                android:value="com.google.firebase.components.ComponentRegistrar" />
+137-->[com.google.firebase:firebase-firestore:24.3.1] /Users/anuprazapati/.gradle/caches/transforms-3/3844c8ed27e966e6fb6056a976cc283c/transformed/jetified-firebase-firestore-24.3.1/AndroidManifest.xml:22:17-82
+138            <meta-data
+138-->[com.google.firebase:firebase-storage:20.0.2] /Users/anuprazapati/.gradle/caches/transforms-3/08409df6b13fa57f5bb644976d74fa05/transformed/jetified-firebase-storage-20.0.2/AndroidManifest.xml:33:13-35:85
+139                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+139-->[com.google.firebase:firebase-storage:20.0.2] /Users/anuprazapati/.gradle/caches/transforms-3/08409df6b13fa57f5bb644976d74fa05/transformed/jetified-firebase-storage-20.0.2/AndroidManifest.xml:34:17-107
+140                android:value="com.google.firebase.components.ComponentRegistrar" />
+140-->[com.google.firebase:firebase-storage:20.0.2] /Users/anuprazapati/.gradle/caches/transforms-3/08409df6b13fa57f5bb644976d74fa05/transformed/jetified-firebase-storage-20.0.2/AndroidManifest.xml:35:17-82
+141            <meta-data
+141-->[com.google.firebase:firebase-installations:17.0.3] /Users/anuprazapati/.gradle/caches/transforms-3/1bdab9b0dca92ca56ee1577e6ae8aa60/transformed/jetified-firebase-installations-17.0.3/AndroidManifest.xml:18:13-20:85
+142                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+142-->[com.google.firebase:firebase-installations:17.0.3] /Users/anuprazapati/.gradle/caches/transforms-3/1bdab9b0dca92ca56ee1577e6ae8aa60/transformed/jetified-firebase-installations-17.0.3/AndroidManifest.xml:19:17-127
+143                android:value="com.google.firebase.components.ComponentRegistrar" />
+143-->[com.google.firebase:firebase-installations:17.0.3] /Users/anuprazapati/.gradle/caches/transforms-3/1bdab9b0dca92ca56ee1577e6ae8aa60/transformed/jetified-firebase-installations-17.0.3/AndroidManifest.xml:20:17-82
+144        </service>
+145        <service
+145-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-19:72
+146            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+146-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-107
+147            android:exported="false"
+147-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+148            android:permission="android.permission.BIND_JOB_SERVICE" />
+148-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-69
+149        <service
+149-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:20:9-26:19
+150            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+150-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-97
+151            android:exported="false" >
+151-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-37
 152            <intent-filter>
-152-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:51:13-61:29
-153                <action android:name="android.intent.action.VIEW" />
-153-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:34:17-69
-153-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:34:25-66
-154
-155                <category android:name="android.intent.category.DEFAULT" />
-155-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:36:17-76
-155-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:36:27-73
-156                <category android:name="android.intent.category.BROWSABLE" />
-156-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:37:17-78
-156-->[com.google.firebase:firebase-auth:21.0.7] /Users/anuprazapati/.gradle/caches/transforms-3/00f3d6bce10983fe534f25c5d480e99d/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:37:27-75
-157
-158                <data
-158-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:45:7-39
-159                    android:host="firebase.auth"
-160                    android:path="/"
-161                    android:scheme="recaptcha" />
-161-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:45:13-36
-162            </intent-filter>
-163        </activity>
-164
-165        <provider
-165-->[com.google.firebase:firebase-common:20.1.1] /Users/anuprazapati/.gradle/caches/transforms-3/6a4c6d1c6c123dd0fc5c77c2fb3649c5/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:26:9-31:39
-166            android:name="com.google.firebase.provider.FirebaseInitProvider"
-166-->[com.google.firebase:firebase-common:20.1.1] /Users/anuprazapati/.gradle/caches/transforms-3/6a4c6d1c6c123dd0fc5c77c2fb3649c5/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:27:13-77
-167            android:authorities="com.example.blood_doner.firebaseinitprovider"
-167-->[com.google.firebase:firebase-common:20.1.1] /Users/anuprazapati/.gradle/caches/transforms-3/6a4c6d1c6c123dd0fc5c77c2fb3649c5/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:28:13-72
-168            android:directBootAware="true"
-168-->[com.google.firebase:firebase-common:20.1.1] /Users/anuprazapati/.gradle/caches/transforms-3/6a4c6d1c6c123dd0fc5c77c2fb3649c5/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:29:13-43
+152-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+153                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+153-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+153-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+154            </intent-filter>
+155        </service>
+156
+157        <receiver
+157-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:28:9-35:20
+158            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+158-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-98
+159            android:exported="true"
+159-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-36
+160            android:permission="com.google.android.c2dm.permission.SEND" >
+160-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-73
+161            <intent-filter>
+161-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+162                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+162-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+162-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+163            </intent-filter>
+164        </receiver>
+165
+166        <provider
+166-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:43:9-47:38
+167            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+167-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:44:13-102
+168            android:authorities="com.example.blood_doner.flutterfirebasemessaginginitprovider"
+168-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:45:13-88
 169            android:exported="false"
-169-->[com.google.firebase:firebase-common:20.1.1] /Users/anuprazapati/.gradle/caches/transforms-3/6a4c6d1c6c123dd0fc5c77c2fb3649c5/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:30:13-37
-170            android:initOrder="100" />
-170-->[com.google.firebase:firebase-common:20.1.1] /Users/anuprazapati/.gradle/caches/transforms-3/6a4c6d1c6c123dd0fc5c77c2fb3649c5/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:31:13-36
-171
-172        <activity
-172-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:23:9-27:75
-173            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-173-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:24:13-93
-174            android:excludeFromRecents="true"
-174-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:25:13-46
-175            android:exported="false"
-175-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:26:13-37
-176            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-176-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:27:13-72
-177        <!--
-178            Service handling Google Sign-In user revocation. For apps that do not integrate with
-179            Google Sign-In, this service will never be started.
-180        -->
+169-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-37
+170            android:initOrder="99" />
+170-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-35
+171        <provider
+171-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-18:20
+172            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+172-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-82
+173            android:authorities="com.example.blood_doner.flutter.image_provider"
+173-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-74
+174            android:exported="false"
+174-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
+175            android:grantUriPermissions="true" >
+175-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-47
+176            <meta-data
+176-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-17:75
+177                android:name="android.support.FILE_PROVIDER_PATHS"
+177-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-67
+178                android:resource="@xml/flutter_image_picker_file_paths" />
+178-->[:image_picker_android] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-72
+179        </provider>
+180
 181        <service
-181-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:33:9-37:51
-182            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-182-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:34:13-89
-183            android:exported="true"
-183-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:35:13-36
-184            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-184-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:36:13-107
-185            android:visibleToInstantApps="true" />
-185-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:37:13-48
+181-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-17:56
+182            android:name="com.lyokone.location.FlutterLocationService"
+182-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-71
+183            android:enabled="true"
+183-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-35
+184            android:exported="false"
+184-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
+185            android:foregroundServiceType="location" />
+185-->[:location] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-53
 186
-187        <activity
-187-->[com.google.android.gms:play-services-base:18.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
-188            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-188-->[com.google.android.gms:play-services-base:18.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
-189            android:exported="false"
-189-->[com.google.android.gms:play-services-base:18.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
-190            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-190-->[com.google.android.gms:play-services-base:18.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
-191
-192        <meta-data
-192-->[com.google.android.gms:play-services-basement:18.0.0] /Users/anuprazapati/.gradle/caches/transforms-3/fc0b42180d6cfa4088f876f2de646fba/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
-193            android:name="com.google.android.gms.version"
-193-->[com.google.android.gms:play-services-basement:18.0.0] /Users/anuprazapati/.gradle/caches/transforms-3/fc0b42180d6cfa4088f876f2de646fba/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
-194            android:value="@integer/google_play_services_version" />
-194-->[com.google.android.gms:play-services-basement:18.0.0] /Users/anuprazapati/.gradle/caches/transforms-3/fc0b42180d6cfa4088f876f2de646fba/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
-195    </application>
-196
-197</manifest>
+187        <uses-library
+187-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+188            android:name="androidx.window.extensions"
+188-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+189            android:required="false" />
+189-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+190        <uses-library
+190-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+191            android:name="androidx.window.sidecar"
+191-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+192            android:required="false" />
+192-->[androidx.window:window:1.0.0-beta04] /Users/anuprazapati/.gradle/caches/transforms-3/65d7f496e0c0fefec8fa7195c7c8a034/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+193
+194        <receiver
+194-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:32:9-39:20
+195            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+195-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:33:13-78
+196            android:exported="true"
+196-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:34:13-36
+197            android:permission="com.google.android.c2dm.permission.SEND" >
+197-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:35:13-73
+198            <intent-filter>
+198-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+199                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+199-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+199-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+200            </intent-filter>
+201        </receiver>
+202        <!--
+203             FirebaseMessagingService performs security checks at runtime,
+204             but set to not exported to explicitly avoid allowing another app to call it.
+205        -->
+206        <service
+206-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:45:9-52:19
+207            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+207-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:46:13-82
+208            android:directBootAware="true"
+208-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:47:13-43
+209            android:exported="false" >
+209-->[com.google.firebase:firebase-messaging:23.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/6b01f44ab02d4c280d30d6ba196fd907/transformed/jetified-firebase-messaging-23.0.8/AndroidManifest.xml:48:13-37
+210            <intent-filter android:priority="-500" >
+210-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+211                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+211-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+211-->[:firebase_messaging] /Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+212            </intent-filter>
+213        </service>
+214        <service
+214-->[com.google.android.datatransport:transport-backend-cct:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/e18f1c579e7d9d30282df6b1563d5915/transformed/jetified-transport-backend-cct-3.1.7/AndroidManifest.xml:29:9-35:19
+215            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+215-->[com.google.android.datatransport:transport-backend-cct:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/e18f1c579e7d9d30282df6b1563d5915/transformed/jetified-transport-backend-cct-3.1.7/AndroidManifest.xml:30:13-103
+216            android:exported="false" >
+216-->[com.google.android.datatransport:transport-backend-cct:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/e18f1c579e7d9d30282df6b1563d5915/transformed/jetified-transport-backend-cct-3.1.7/AndroidManifest.xml:31:13-37
+217            <meta-data
+217-->[com.google.android.datatransport:transport-backend-cct:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/e18f1c579e7d9d30282df6b1563d5915/transformed/jetified-transport-backend-cct-3.1.7/AndroidManifest.xml:32:13-34:39
+218                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+218-->[com.google.android.datatransport:transport-backend-cct:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/e18f1c579e7d9d30282df6b1563d5915/transformed/jetified-transport-backend-cct-3.1.7/AndroidManifest.xml:33:17-94
+219                android:value="cct" />
+219-->[com.google.android.datatransport:transport-backend-cct:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/e18f1c579e7d9d30282df6b1563d5915/transformed/jetified-transport-backend-cct-3.1.7/AndroidManifest.xml:34:17-36
+220        </service>
+221        <service
+221-->[com.google.android.datatransport:transport-runtime:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/09101248c1ea6d792d2c878e13d3f681/transformed/jetified-transport-runtime-3.1.7/AndroidManifest.xml:26:9-30:19
+222            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+222-->[com.google.android.datatransport:transport-runtime:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/09101248c1ea6d792d2c878e13d3f681/transformed/jetified-transport-runtime-3.1.7/AndroidManifest.xml:27:13-117
+223            android:exported="false"
+223-->[com.google.android.datatransport:transport-runtime:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/09101248c1ea6d792d2c878e13d3f681/transformed/jetified-transport-runtime-3.1.7/AndroidManifest.xml:28:13-37
+224            android:permission="android.permission.BIND_JOB_SERVICE" >
+224-->[com.google.android.datatransport:transport-runtime:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/09101248c1ea6d792d2c878e13d3f681/transformed/jetified-transport-runtime-3.1.7/AndroidManifest.xml:29:13-69
+225        </service>
+226
+227        <receiver
+227-->[com.google.android.datatransport:transport-runtime:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/09101248c1ea6d792d2c878e13d3f681/transformed/jetified-transport-runtime-3.1.7/AndroidManifest.xml:32:9-34:40
+228            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+228-->[com.google.android.datatransport:transport-runtime:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/09101248c1ea6d792d2c878e13d3f681/transformed/jetified-transport-runtime-3.1.7/AndroidManifest.xml:33:13-132
+229            android:exported="false" />
+229-->[com.google.android.datatransport:transport-runtime:3.1.7] /Users/anuprazapati/.gradle/caches/transforms-3/09101248c1ea6d792d2c878e13d3f681/transformed/jetified-transport-runtime-3.1.7/AndroidManifest.xml:34:13-37
+230
+231        <activity
+231-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:27:9-44:20
+232            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+232-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:28:13-80
+233            android:excludeFromRecents="true"
+233-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:29:13-46
+234            android:exported="true"
+234-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:30:13-36
+235            android:launchMode="singleTask"
+235-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:31:13-44
+236            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+236-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:32:13-72
+237            <intent-filter>
+237-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:33:13-43:29
+238                <action android:name="android.intent.action.VIEW" />
+238-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:12:13-65
+238-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:12:21-62
+239
+240                <category android:name="android.intent.category.DEFAULT" />
+240-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:36:17-76
+240-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:36:27-73
+241                <category android:name="android.intent.category.BROWSABLE" />
+241-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:37:17-78
+241-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:37:27-75
+242
+243                <data
+243-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:13-44
+244                    android:host="firebase.auth"
+245                    android:path="/"
+246                    android:scheme="genericidp" />
+246-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:19-41
+247            </intent-filter>
+248        </activity>
+249        <activity
+249-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:45:9-62:20
+250            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+250-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:46:13-79
+251            android:excludeFromRecents="true"
+251-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:47:13-46
+252            android:exported="true"
+252-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:48:13-36
+253            android:launchMode="singleTask"
+253-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:49:13-44
+254            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+254-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:50:13-72
+255            <intent-filter>
+255-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:51:13-61:29
+256                <action android:name="android.intent.action.VIEW" />
+256-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:12:13-65
+256-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:12:21-62
+257
+258                <category android:name="android.intent.category.DEFAULT" />
+258-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:36:17-76
+258-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:36:27-73
+259                <category android:name="android.intent.category.BROWSABLE" />
+259-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:37:17-78
+259-->[com.google.firebase:firebase-auth:21.0.8] /Users/anuprazapati/.gradle/caches/transforms-3/54f3b7547eb1f45f9c699ae2da542292/transformed/jetified-firebase-auth-21.0.8/AndroidManifest.xml:37:27-75
+260
+261                <data
+261-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:13-44
+262                    android:host="firebase.auth"
+263                    android:path="/"
+264                    android:scheme="recaptcha" />
+264-->/Users/anuprazapati/StudioProjects/blood/blood-donar-system/android/app/src/main/AndroidManifest.xml:13:19-41
+265            </intent-filter>
+266        </activity>
+267
+268        <provider
+268-->[com.google.firebase:firebase-common:20.1.2] /Users/anuprazapati/.gradle/caches/transforms-3/e50eb525a095d1ad27cca716f3eac65b/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:26:9-31:39
+269            android:name="com.google.firebase.provider.FirebaseInitProvider"
+269-->[com.google.firebase:firebase-common:20.1.2] /Users/anuprazapati/.gradle/caches/transforms-3/e50eb525a095d1ad27cca716f3eac65b/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:27:13-77
+270            android:authorities="com.example.blood_doner.firebaseinitprovider"
+270-->[com.google.firebase:firebase-common:20.1.2] /Users/anuprazapati/.gradle/caches/transforms-3/e50eb525a095d1ad27cca716f3eac65b/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:28:13-72
+271            android:directBootAware="true"
+271-->[com.google.firebase:firebase-common:20.1.2] /Users/anuprazapati/.gradle/caches/transforms-3/e50eb525a095d1ad27cca716f3eac65b/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:29:13-43
+272            android:exported="false"
+272-->[com.google.firebase:firebase-common:20.1.2] /Users/anuprazapati/.gradle/caches/transforms-3/e50eb525a095d1ad27cca716f3eac65b/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:30:13-37
+273            android:initOrder="100" />
+273-->[com.google.firebase:firebase-common:20.1.2] /Users/anuprazapati/.gradle/caches/transforms-3/e50eb525a095d1ad27cca716f3eac65b/transformed/jetified-firebase-common-20.1.2/AndroidManifest.xml:31:13-36
+274
+275        <activity
+275-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:23:9-27:75
+276            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+276-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:24:13-93
+277            android:excludeFromRecents="true"
+277-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:25:13-46
+278            android:exported="false"
+278-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:26:13-37
+279            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+279-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:27:13-72
+280        <!--
+281            Service handling Google Sign-In user revocation. For apps that do not integrate with
+282            Google Sign-In, this service will never be started.
+283        -->
+284        <service
+284-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:33:9-37:51
+285            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+285-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:34:13-89
+286            android:exported="true"
+286-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:35:13-36
+287            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+287-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:36:13-107
+288            android:visibleToInstantApps="true" />
+288-->[com.google.android.gms:play-services-auth:20.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/609b034b563f03359324e1f7e00dd9ec/transformed/jetified-play-services-auth-20.0.1/AndroidManifest.xml:37:13-48
+289
+290        <activity
+290-->[com.google.android.gms:play-services-base:18.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+291            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+291-->[com.google.android.gms:play-services-base:18.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+292            android:exported="false"
+292-->[com.google.android.gms:play-services-base:18.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+293            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+293-->[com.google.android.gms:play-services-base:18.0.1] /Users/anuprazapati/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+294
+295        <meta-data
+295-->[com.google.android.gms:play-services-basement:18.1.0] /Users/anuprazapati/.gradle/caches/transforms-3/6b0c092eedb3707ee2110fcb7c7dd85e/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+296            android:name="com.google.android.gms.version"
+296-->[com.google.android.gms:play-services-basement:18.1.0] /Users/anuprazapati/.gradle/caches/transforms-3/6b0c092eedb3707ee2110fcb7c7dd85e/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+297            android:value="@integer/google_play_services_version" />
+297-->[com.google.android.gms:play-services-basement:18.1.0] /Users/anuprazapati/.gradle/caches/transforms-3/6b0c092eedb3707ee2110fcb7c7dd85e/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+298    </application>
+299
+300</manifest>

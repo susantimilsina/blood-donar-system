@@ -26,11 +26,15 @@ class DonorViewModel extends BaseViewModel {
 
   Future<void> setupFirebaseMessage() async {
     subscribeToTopic();
-    // RemoteMessage? initialMessage =
-    //     await FirebaseMessaging.instance.getInitialMessage();
+    RemoteMessage? initialMessage =
+        await FirebaseMessaging.instance.getInitialMessage();
+    if (initialMessage != null) {
+      print("Message her");
+    }
     FirebaseMessaging.instance.getToken().then((value) {
       print("Toke" + value.toString());
     });
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       String title = message.data['title'] ?? message.notification?.title ?? "";
@@ -67,3 +71,5 @@ class DonorViewModel extends BaseViewModel {
     });
   }
 }
+
+Future<void> _firebaseMessagingBackgroundHandler(message) async {}
