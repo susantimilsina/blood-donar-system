@@ -1,9 +1,9 @@
-#Wed Sep 21 13:01:06 NPT 2022
-base.2=/Users/susantimilsina/Desktop/Blood-doner-app-master/build/app/intermediates/dex/debug/mergeDexDebug/classes3.dex
+#Fri Sep 23 17:50:39 NPT 2022
+base.2=/Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/app/intermediates/dex/debug/mergeDexDebug/classes3.dex
 path.2=classes3.dex
-base.1=/Users/susantimilsina/Desktop/Blood-doner-app-master/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
+base.1=/Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
 path.1=classes2.dex
-base.0=/Users/susantimilsina/Desktop/Blood-doner-app-master/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+base.0=/Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex

@@ -34,6 +34,10 @@ class EditProfileViewModel extends BaseViewModel {
     return _authenticationService.user!.userName;
   }
 
+  String get getRole {
+    return _authenticationService.user!.role;
+  }
+
   String get getUserAge {
     return _authenticationService.user!.age;
   }

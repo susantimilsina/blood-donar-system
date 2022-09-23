@@ -38,7 +38,7 @@ class HomeView extends StatelessWidget {
                           ),
                         ),
                         accountEmail: Text(
-                          insidemodel.getUserMail.toString(),
+                          "${insidemodel.getUserMail.toString()} (${insidemodel.getRole})",
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -50,120 +50,129 @@ class HomeView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      ListTile(
-                        leading: const Icon(
-                          Icons.bloodtype_sharp,
-                        ),
-                        title: const Text('Ask for blood'),
-                        onTap: () {
-                          Navigator.pop(context);
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  content: Stack(
-                                    children: <Widget>[
-                                      Form(
-                                        key: _formKey,
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            const Text(
-                                              'Purpose you need blood',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 16),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 8.0),
-                                              child: TextField(
-                                                controller:
-                                                    model.purposeController,
-                                                keyboardType:
-                                                    TextInputType.text,
-                                                // controller: model.emailController,
-                                                decoration:
-                                                    const InputDecoration(
-                                                  hintText: 'Purpose',
+                      if (insidemodel.getRole.toLowerCase().startsWith("p"))
+                        ListTile(
+                          leading: const Icon(
+                            Icons.bloodtype_sharp,
+                          ),
+                          title: const Text('Ask for blood'),
+                          onTap: () {
+                            Navigator.pop(context);
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: Stack(
+                                      children: <Widget>[
+                                        Form(
+                                          key: _formKey,
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              const Text(
+                                                'Purpose you need blood',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 16),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 8.0),
+                                                child: TextField(
+                                                  controller:
+                                                      model.purposeController,
+                                                  keyboardType:
+                                                      TextInputType.text,
+                                                  // controller: model.emailController,
+                                                  decoration:
+                                                      const InputDecoration(
+                                                    hintText: 'Purpose',
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  'Blood group',
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.grey.shade700,
-                                                      fontSize: 16),
-                                                ),
-                                                horizontalSpaceMedium,
-                                                SizedBox(
-                                                  width: screenWidthPercentage(
-                                                      context,
-                                                      percentage: 0.45),
-                                                  child: DropdownButton(
-                                                    value: model
-                                                        .selectedBloodgroup,
-                                                    items: model.bgList,
-                                                    onChanged: model
-                                                        .onChangedBloodgroup,
-                                                    isExpanded: true,
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    'Blood group',
+                                                    style: TextStyle(
+                                                        color: Colors
+                                                            .grey.shade700,
+                                                        fontSize: 16),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: ElevatedButton(
-                                                    child: Text("Cancel"),
-                                                    style: ButtonStyle(
-                                                        backgroundColor:
-                                                            MaterialStateProperty
-                                                                .all(Colors.grey
-                                                                    .shade100)),
-                                                    onPressed: () {
-                                                      Navigator.pop(context);
-                                                    },
+                                                  horizontalSpaceMedium,
+                                                  Flexible(
+                                                    child: SizedBox(
+                                                      width:
+                                                          screenWidthPercentage(
+                                                              context,
+                                                              percentage: 0.45),
+                                                      child: DropdownButton(
+                                                        value: model
+                                                            .selectedBloodgroup,
+                                                        items: model.bgList,
+                                                        onChanged: model
+                                                            .onChangedBloodgroup,
+                                                        isExpanded: true,
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: ElevatedButton(
-                                                    style: ButtonStyle(
-                                                        backgroundColor:
-                                                            MaterialStateProperty
-                                                                .all(Colors
-                                                                    .green)),
-                                                    child: const Text("Submit"),
-                                                    onPressed: () {
-                                                      if (_formKey.currentState!
-                                                          .validate()) {
-                                                        model
-                                                            .sendNotification();
-                                                      }
-                                                    },
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: ElevatedButton(
+                                                      child: Text("Cancel"),
+                                                      style: ButtonStyle(
+                                                          backgroundColor:
+                                                              MaterialStateProperty
+                                                                  .all(Colors
+                                                                      .grey
+                                                                      .shade100)),
+                                                      onPressed: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            )
-                                          ],
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: ElevatedButton(
+                                                      style: ButtonStyle(
+                                                          backgroundColor:
+                                                              MaterialStateProperty
+                                                                  .all(Colors
+                                                                      .green)),
+                                                      child:
+                                                          const Text("Submit"),
+                                                      onPressed: () {
+                                                        if (_formKey
+                                                            .currentState!
+                                                            .validate()) {
+                                                          model
+                                                              .sendNotification();
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              });
-                        },
-                      ),
+                                      ],
+                                    ),
+                                  );
+                                });
+                          },
+                        ),
                       ListTile(
                         leading: const Icon(
                           Icons.edit,

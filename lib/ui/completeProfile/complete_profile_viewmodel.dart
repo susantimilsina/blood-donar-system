@@ -181,7 +181,9 @@ class CompleteProfileViewModel extends BaseViewModel {
           longitude: (longitude ?? 0.0).toString(),
           latitude: (latitude ?? 0.0).toString(),
           imageFileName: cloudStorageResult.imageFileName,
-          isAvailable: isAvailable);
+          isAvailable: selectedRole.toString().toLowerCase().startsWith("d")
+              ? isAvailable
+              : false);
 
       await _firestoreService.createNewUserEntry(
           uid: _authenticationService.firebaseUser!.uid, user: user);

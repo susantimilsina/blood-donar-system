@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/susantimilsina/Desktop/Blood-doner-app-master/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-lo/values-lo.xml",
+            "outputFile": "/Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-lo/values-lo.xml",
             "map": [
                 {
-                    "source": "/Users/susantimilsina/.gradle/caches/transforms-3/499c2e1c2a21c0a395f33dd842466659/transformed/browser-1.4.0/res/values-lo/values-lo.xml",
+                    "source": "/Users/anuprazapati/.gradle/caches/transforms-3/fc0b42180d6cfa4088f876f2de646fba/transformed/jetified-play-services-basement-18.0.0/res/values-lo/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "127",
+                        "endOffsets": "322"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1071",
+                        "endColumns": "131",
+                        "endOffsets": "1198"
+                    }
+                },
+                {
+                    "source": "/Users/anuprazapati/.gradle/caches/transforms-3/499c2e1c2a21c0a395f33dd842466659/transformed/browser-1.4.0/res/values-lo/values-lo.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/susantimilsina/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/res/values-lo/values.xml",
+                    "source": "/Users/anuprazapati/.gradle/caches/transforms-3/c13d9e5ecb09d9c19ab8309c72c4c353/transformed/jetified-play-services-base-18.0.1/res/values-lo/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "/Users/susantimilsina/.gradle/caches/transforms-3/507db748440bce95909c434a56d22892/transformed/core-1.8.0/res/values-lo/values-lo.xml",
+                    "source": "/Users/anuprazapati/.gradle/caches/transforms-3/507db748440bce95909c434a56d22892/transformed/core-1.8.0/res/values-lo/values-lo.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -52,23 +69,6 @@
                         "startOffsets": "2720",
                         "endColumns": "100",
                         "endOffsets": "2816"
-                    }
-                },
-                {
-                    "source": "/Users/susantimilsina/.gradle/caches/transforms-3/fc0b42180d6cfa4088f876f2de646fba/transformed/jetified-play-services-basement-18.0.0/res/values-lo/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "127",
-                        "endOffsets": "322"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1071",
-                        "endColumns": "131",
-                        "endOffsets": "1198"
                     }
                 }
             ]
