@@ -13,6 +13,7 @@ import 'package:stacked/stacked_annotations.dart';
 import '../ui/EditProfile/edit_profile_view.dart';
 import '../ui/ViewProfile/viewprofile_view.dart';
 import '../ui/completeProfile/complete_profile_view.dart';
+import '../ui/donate_view/donate_form_view.dart';
 import '../ui/donor/donor_view.dart';
 import '../ui/home/home_view.dart';
 import '../ui/login/login_view.dart';
@@ -28,6 +29,7 @@ class Routes {
   static const String editProfileView = '/edit-profile-view';
   static const String viewProfileView = '/view-profile-view';
   static const String donorView = '/donor-view';
+  static const String donateFormView = '/donate-form-view';
   static const all = <String>{
     startUpView,
     homeView,
@@ -37,6 +39,7 @@ class Routes {
     editProfileView,
     viewProfileView,
     donorView,
+    donateFormView,
   };
 }
 
@@ -52,6 +55,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.editProfileView, page: EditProfileView),
     RouteDef(Routes.viewProfileView, page: ViewProfileView),
     RouteDef(Routes.donorView, page: DonorView),
+    RouteDef(Routes.donateFormView, page: DonateFormView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -105,6 +109,12 @@ class StackedRouter extends RouterBase {
     DonorView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const DonorView(),
+        settings: data,
+      );
+    },
+    DonateFormView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const DonateFormView(),
         settings: data,
       );
     },

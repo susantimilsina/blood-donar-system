@@ -98,8 +98,8 @@ class AuthenticationService {
     _navigationService.clearStackAndShow(Routes.loginView);
   }
 
-  void changeRoute(String route) {
-    _navigationService.navigateTo(route);
+  Future<void> changeRoute(String route) async {
+    await _navigationService.navigateTo(route);
   }
 
   Future populateUser({required String userId}) async {

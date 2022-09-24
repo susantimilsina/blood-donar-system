@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:http/http.dart' as http;
@@ -35,7 +34,5 @@ class ViewProfileViewModel extends BaseViewModel {
         },
       ),
     );
-    print("response " + resonse.body.toString());
-    print("to" + selectedBloodgroup.replaceAll("+", ""));
   }
 }

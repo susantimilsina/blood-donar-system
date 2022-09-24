@@ -4,18 +4,16 @@
 // StackedLocatorGenerator
 // **************************************************************************
 
-// ignore_for_file: public_member_api_docs, implementation_imports, depend_on_referenced_packages
+// ignore_for_file: public_member_api_docs
 
 import 'package:stacked_core/stacked_core.dart';
-import 'package:stacked_services/src/bottom_sheet/bottom_sheet_service.dart';
-import 'package:stacked_services/src/dialog/dialog_service.dart';
-import 'package:stacked_services/src/navigation/navigation_service.dart';
-import 'package:stacked_services/src/snackbar/snackbar_service.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 import '../services/authentication_service.dart';
 import '../services/cloud_storage_service.dart';
 import '../services/firestore_service.dart';
 import '../services/image_selector.dart';
+import '../ui/donate_view/donate_form_view_model.dart';
 import '../ui/donor/donor_view_model.dart';
 import '../ui/home/home_viewmodel.dart';
 
@@ -38,4 +36,5 @@ Future<void> setupLocator(
   locator.registerSingleton(AuthenticationService());
   locator.registerLazySingleton(() => HomeViewModel());
   locator.registerLazySingleton(() => DonorViewModel());
+  locator.registerLazySingleton(() => DonateFormViewModel());
 }
