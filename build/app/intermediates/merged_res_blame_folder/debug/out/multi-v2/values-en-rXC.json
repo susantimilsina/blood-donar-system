@@ -1,20 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/susantimilsina/Desktop/Blood-doner-app-master/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "/Users/anuprazapati/StudioProjects/blood/blood-donar-system/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
-                    "source": "/Users/susantimilsina/.gradle/caches/transforms-3/499c2e1c2a21c0a395f33dd842466659/transformed/browser-1.4.0/res/values-en-rXC/values-en-rXC.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,255,454,665",
-                        "endColumns": "199,198,210,201",
-                        "endOffsets": "250,449,660,862"
-                    }
-                },
-                {
-                    "source": "/Users/susantimilsina/.gradle/caches/transforms-3/507db748440bce95909c434a56d22892/transformed/core-1.8.0/res/values-en-rXC/values-en-rXC.xml",
+                    "source": "/Users/anuprazapati/.gradle/caches/transforms-3/507db748440bce95909c434a56d22892/transformed/core-1.8.0/res/values-en-rXC/values-en-rXC.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -28,6 +18,16 @@
                         "startOffsets": "867",
                         "endColumns": "203",
                         "endOffsets": "1066"
+                    }
+                },
+                {
+                    "source": "/Users/anuprazapati/.gradle/caches/transforms-3/499c2e1c2a21c0a395f33dd842466659/transformed/browser-1.4.0/res/values-en-rXC/values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,255,454,665",
+                        "endColumns": "199,198,210,201",
+                        "endOffsets": "250,449,660,862"
                     }
                 }
             ]

@@ -129,9 +129,9 @@ class DonateFormView extends StatelessWidget {
                                   if (_formKey.currentState!.validate()) {
                                     UIBlock.block(context);
                                     model.createDonation(model.selectedDate
-                                  .difference(DateTime.now())
-                                  .inDays <
-                              90);
+                                            .difference(DateTime.now())
+                                            .inDays <
+                                        90);
                                     if (!model.isBusy) {
                                       UIBlock.unblock(context);
                                       Navigator.pop(context);

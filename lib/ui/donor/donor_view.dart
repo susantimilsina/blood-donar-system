@@ -59,7 +59,7 @@ class DonorView extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
                     model.changeNavForm().then((value) {
-                      model.futureToRun;
+                      model.initialize();
                     });
                   },
                 ),

@@ -16,6 +16,10 @@ class DonorViewModel extends BaseViewModel {
     setupFirebaseMessage();
     getAllDontion();
   }
+  void initialize() {
+    getAllDontion();
+  }
+
   List<DonationModel> currentDataList = [];
   List<DonationModel> displayList = [];
   final AuthenticationService _authenticationService =
