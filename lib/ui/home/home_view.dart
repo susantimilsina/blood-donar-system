@@ -403,4 +403,5 @@ class HomeView extends StatelessWidget {
         //  locator<HomeViewModel>(),
         );
   }
+
 }

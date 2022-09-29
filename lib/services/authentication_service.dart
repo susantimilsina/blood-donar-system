@@ -106,11 +106,14 @@ class AuthenticationService {
     try {
       if (await _firestoreService.isUserPresent(uid: userId)) {
         _user = await _firestoreService.getUser(uid: userId);
-        print("User role ${user?.role}");
         if (user?.role != null && user?.role.toLowerCase() == "patient") {
-          _navigationService.clearStackAndShow(Routes.homeView);
-        } else {
+          _navigationService.clearStackAndShow(Routes.patientView);
+        } else if (user?.role != null &&
+            (user?.role.toLowerCase() == "donor" ||
+                user?.role.toLowerCase() == "doner")) {
           _navigationService.clearStackAndShow(Routes.donorView);
+        } else {
+          _navigationService.clearStackAndShow(Routes.adminView);
         }
       } else {
         _navigationService.clearStackAndShow(Routes.completeProfileView);

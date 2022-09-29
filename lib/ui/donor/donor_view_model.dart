@@ -73,7 +73,10 @@ class DonorViewModel extends BaseViewModel {
     List<DonationModel> dataList =
         result.map((e) => DonationModel.fromMap(e)).toList();
     currentDataList = dataList;
-    displayList = dataList;
+    displayList = dataList
+        .where((element) =>
+            element.userId == _authenticationService.firebaseUser!.uid)
+        .toList();
     setBusy(false);
     notifyListeners();
   }

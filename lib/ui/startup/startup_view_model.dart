@@ -18,7 +18,7 @@ class StartUpViewModel extends BaseViewModel {
       await _authenticationService.populateUser(
           userId: _authenticationService.firebaseUser!.uid);
     } else {
-      _navigationService.navigateTo(Routes.loginView);
+      _navigationService.navigateTo(Routes.introductionScreenPage);
     }
   }
 }

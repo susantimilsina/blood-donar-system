@@ -22,7 +22,7 @@
         </intent>
     </queries>
    <application
-        android:label="blood_doner"
+        android:label="Blood Donor Hub"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

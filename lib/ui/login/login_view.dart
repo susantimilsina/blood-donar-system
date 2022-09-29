@@ -60,13 +60,16 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 verticalSpaceMedium,
+                Container(
+                  alignment: Alignment.topLeft,
+                  child: const Text(
+                    'Login as :',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Login as :',
-                      style: TextStyle(fontSize: 18),
-                    ),
                     Expanded(
                       child: OptionRadio(
                           text: 'Patient',
