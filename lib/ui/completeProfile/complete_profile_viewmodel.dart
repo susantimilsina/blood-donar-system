@@ -74,12 +74,14 @@ class CompleteProfileViewModel extends BaseViewModel {
   ];
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
   String selectedRole = "Donor";
   String selectedBloodgroup = "A+";
   bool isAvailable = true;
   XFile? pickedImage;
   double? latitude;
   double? longitude;
+  bool isAccepted = false;
 
   void toggleAvailable() {
     isAvailable = !isAvailable;
@@ -156,8 +158,17 @@ class CompleteProfileViewModel extends BaseViewModel {
   void createUserinDb() async {
     if (nameController.text.isEmpty ||
         ageController.text.isEmpty ||
+        numberController.text.isEmpty ||
         pickedImage == null) {
       Get.snackbar("Empty Fields", "Please enter all the fields",
+          snackPosition: SnackPosition.BOTTOM,
+          colorText: Colors.white,
+          backgroundColor: Colors.red);
+      return;
+    }
+    if (isAccepted) {
+      Get.snackbar("Accept terms and condition",
+          "Please read and accept terms and conditions",
           snackPosition: SnackPosition.BOTTOM,
           colorText: Colors.white,
           backgroundColor: Colors.red);
@@ -176,6 +187,7 @@ class CompleteProfileViewModel extends BaseViewModel {
           email: _authenticationService.firebaseUser!.email!,
           bloodGroup: selectedRole == "Donor" ? selectedBloodgroup : "",
           age: ageController.text.trim(),
+          number: numberController.text.trim(),
           role: selectedRole,
           imageUrl: cloudStorageResult.imageUrl,
           longitude: (longitude ?? 0.0).toString(),
@@ -203,5 +215,10 @@ class CompleteProfileViewModel extends BaseViewModel {
       _log.e(e.toString());
     }
     setBusy(false);
+  }
+
+  void toggleAccepted() {
+    isAccepted = !isAccepted;
+    notifyListeners();
   }
 }

@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'dart:io';
 
 class UserModel {
   String userName;
   String email;
   String bloodGroup;
   String age;
+  String number;
   String role;
   String imageUrl;
   String imageFileName;
@@ -17,6 +17,7 @@ class UserModel {
       required this.email,
       required this.bloodGroup,
       required this.age,
+      required this.number,
       required this.role,
       required this.imageUrl,
       required this.imageFileName,
@@ -40,6 +41,7 @@ class UserModel {
         email: email ?? this.email,
         bloodGroup: bloodGroup ?? this.bloodGroup,
         age: age ?? this.age,
+        number: number,
         role: role ?? this.role,
         imageUrl: imageUrl ?? this.imageUrl,
         imageFileName: imageFileName ?? this.imageFileName,
@@ -55,6 +57,7 @@ class UserModel {
     result.addAll({'email': email});
     result.addAll({'bloodGroup': bloodGroup});
     result.addAll({'age': age});
+    result.addAll({'number': number});
     result.addAll({'role': role});
     result.addAll({'latitude': latitude});
     result.addAll({'longitude': longitude});
@@ -71,6 +74,7 @@ class UserModel {
         email: map['email'] ?? '',
         bloodGroup: map['bloodGroup'] ?? '',
         age: map['age'] ?? '',
+        number: map['number'] ?? '',
         role: map['role'] ?? '',
         imageUrl: map['imageUrl'] ?? '',
         imageFileName: map['imageFileName'] ?? '',
@@ -98,6 +102,7 @@ class UserModel {
         other.email == email &&
         other.bloodGroup == bloodGroup &&
         other.age == age &&
+        other.number == number &&
         other.role == role &&
         other.imageUrl == imageUrl &&
         other.latitude == latitude &&
@@ -112,6 +117,7 @@ class UserModel {
         email.hashCode ^
         bloodGroup.hashCode ^
         age.hashCode ^
+        number.hashCode ^
         role.hashCode ^
         imageUrl.hashCode ^
         imageFileName.hashCode ^

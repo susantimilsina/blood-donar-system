@@ -10,18 +10,23 @@ class DonateFormViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
   DateTime selectedDate = DateTime.now();
-  TextEditingController donationCenter = TextEditingController();
   TextEditingController pints = TextEditingController();
   final FirestoreService _firestoreService = locator<FirestoreService>();
 
   CollectionReference students =
       FirebaseFirestore.instance.collection('donations');
+  String dropdownvalue = "";
+  List<String> dropdownList = [];
+
+  DonateFormViewModel() {
+    getDropdownList();
+  }
 
   Future<void> createDonation(bool isLess) async {
     setBusy(true);
     notifyListeners();
     students.add({
-      "center": donationCenter.text.toString(),
+      "center": dropdownvalue,
       "date": "${selectedDate.toLocal()}".split(' ')[0],
       "pints": pints.text.toString(),
       "userId": _authenticationService.firebaseUser!.uid
@@ -54,6 +59,25 @@ class DonateFormViewModel extends BaseViewModel {
 
   changeSelectedDate(DateTime data) {
     selectedDate = data;
+    notifyListeners();
+  }
+
+  void changeDDValue(String value) {
+    dropdownvalue = value;
+    notifyListeners();
+  }
+
+  Future<void> getDropdownList() async {
+    CollectionReference students =
+        FirebaseFirestore.instance.collection('center');
+    setBusy(true);
+    notifyListeners();
+    QuerySnapshot data = await students.get();
+    List<String> result =
+        data.docs.map((doc) => doc["name"].toString()).toList();
+    dropdownList = result;
+    dropdownvalue = dropdownList[0];
+    setBusy(false);
     notifyListeners();
   }
 }

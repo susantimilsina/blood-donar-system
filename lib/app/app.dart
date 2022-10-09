@@ -1,7 +1,11 @@
 import 'package:blood_doner/ui/EditProfile/edit_profile_view.dart';
 import 'package:blood_doner/ui/ViewProfile/viewprofile_view.dart';
+import 'package:blood_doner/ui/about_us/about_us_view_model.dart';
 import 'package:blood_doner/ui/admin/admin_view_model.dart';
 import 'package:blood_doner/ui/admin/center/center_view_model.dart';
+import 'package:blood_doner/ui/admin/center/crud/add/add_center_view.dart';
+import 'package:blood_doner/ui/admin/center/crud/add/add_center_view_model.dart';
+import 'package:blood_doner/ui/admin/center/crud/edit/edit_center_view_model.dart';
 import 'package:blood_doner/ui/donate_view/donate_form_view.dart';
 import 'package:blood_doner/ui/donate_view/donate_form_view_model.dart';
 import 'package:blood_doner/ui/donor/donor_view.dart';
@@ -18,10 +22,12 @@ import '../services/authentication_service.dart';
 import '../services/cloud_storage_service.dart';
 import '../services/firestore_service.dart';
 import '../services/image_selector.dart';
+import '../ui/about_us/about_us_view.dart';
 import '../ui/admin/admin_view.dart';
 import '../ui/admin/blood_request/blood_request_view.dart';
 import '../ui/admin/blood_request/blood_request_view_model.dart';
 import '../ui/admin/center/center_view.dart';
+import '../ui/admin/center/crud/edit/edit_center_view.dart';
 import '../ui/home/home_view.dart';
 import '../ui/login/login_view.dart';
 import '../ui/completeProfile/complete_profile_view.dart';
@@ -46,6 +52,9 @@ import '../ui/startup/startup_view.dart';
     MaterialRoute(page: PatientHistoryView),
     MaterialRoute(page: BloodRequestView),
     MaterialRoute(page: CenterView),
+    MaterialRoute(page: AboutUsView),
+    MaterialRoute(page: AddCenterView),
+    MaterialRoute(page: EditCenterView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
@@ -65,6 +74,9 @@ import '../ui/startup/startup_view.dart';
     LazySingleton(classType: PatientHistoryViewModel),
     LazySingleton(classType: BloodRequestViewModel),
     LazySingleton(classType: CenterViewModel),
+    LazySingleton(classType: AboutUsViewModel),
+    LazySingleton(classType: AddCenterViewModel),
+    LazySingleton(classType: EditCenterViewModel),
   ],
   logger: StackedLogger(),
 )

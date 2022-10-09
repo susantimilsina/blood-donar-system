@@ -13,9 +13,12 @@ import '../services/authentication_service.dart';
 import '../services/cloud_storage_service.dart';
 import '../services/firestore_service.dart';
 import '../services/image_selector.dart';
+import '../ui/about_us/about_us_view.dart';
 import '../ui/admin/admin_view_model.dart';
 import '../ui/admin/blood_request/blood_request_view_model.dart';
 import '../ui/admin/center/center_view_model.dart';
+import '../ui/admin/center/crud/add/add_center_view_model.dart';
+import '../ui/admin/center/crud/edit/edit_center_view_model.dart';
 import '../ui/donate_view/donate_form_view_model.dart';
 import '../ui/donor/donor_view_model.dart';
 import '../ui/home/home_viewmodel.dart';
@@ -49,4 +52,7 @@ Future<void> setupLocator(
   locator.registerLazySingleton(() => PatientHistoryViewModel());
   locator.registerLazySingleton(() => BloodRequestViewModel());
   locator.registerLazySingleton(() => CenterViewModel());
+  locator.registerLazySingleton(() => AboutUsViewModel());
+  locator.registerLazySingleton(() => AddCenterViewModel());
+  locator.registerLazySingleton(() => EditCenterViewModel());
 }

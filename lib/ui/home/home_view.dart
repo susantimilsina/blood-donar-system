@@ -189,6 +189,16 @@ class HomeView extends StatelessWidget {
                       ),
                       ListTile(
                         leading: const Icon(
+                          Icons.edit,
+                        ),
+                        title: const Text('About Us'),
+                        onTap: () {
+                          Navigator.pop(context);
+                          model.changeNav();
+                        },
+                      ),
+                      ListTile(
+                        leading: const Icon(
                           Icons.logout,
                         ),
                         title: const Text('Logout'),
@@ -403,5 +413,4 @@ class HomeView extends StatelessWidget {
         //  locator<HomeViewModel>(),
         );
   }
-
 }

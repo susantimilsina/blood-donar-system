@@ -1,3 +1,4 @@
+import 'package:blood_doner/models/center_blood.dart';
 import 'package:blood_doner/ui/shared/ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -6,7 +7,7 @@ import 'blood_card_view_model.dart';
 
 // ignore: must_be_immutable
 class BloodCardView extends StatelessWidget {
-  List<dynamic> userMap;
+  List<Blood> userMap;
   BloodCardView(this.userMap, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {

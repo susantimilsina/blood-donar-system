@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import '../../app/app.router.dart';
 import '../EditProfile/edit_profile_viewmodel.dart';
 import 'donor_view_model.dart';
 
@@ -61,6 +62,16 @@ class DonorView extends StatelessWidget {
                     model.changeNavForm().then((value) {
                       model.initialize();
                     });
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.info_outline_rounded,
+                  ),
+                  title: const Text('About Us'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    model.changeNavToRoute(Routes.aboutUsView);
                   },
                 ),
                 ListTile(

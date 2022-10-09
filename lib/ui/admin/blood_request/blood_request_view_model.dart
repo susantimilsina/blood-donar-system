@@ -24,7 +24,6 @@ class BloodRequestViewModel extends BaseViewModel {
     QuerySnapshot data = await students.get();
     List<Map<String, dynamic>> result =
         data.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
-    log("Result" + result.toString());
     await Future.forEach(result, (Map<String, dynamic> element) async {
       Map<String, dynamic> data = {};
       data.addAll(element);

@@ -33,7 +33,7 @@ class BloodRequestView extends StatelessWidget {
                                 elevation: 3,
                                 child: ListTile(
                                   title: Text(
-                                    'Date: ${model.currentDataList[index]['date']}',
+                                    'Name: ${model.currentDataList[index]["userName"]}',
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -44,8 +44,19 @@ class BloodRequestView extends StatelessWidget {
                                         .headline5!
                                         .copyWith(color: Colors.red),
                                   ),
-                                  subtitle: Text(
-                                    'Purpose: ${model.currentDataList[index]['purpose']}',
+                                  subtitle: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Date: ${model.currentDataList[index]['date']}',
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        'Purpose: ${model.currentDataList[index]['purpose']}',
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),

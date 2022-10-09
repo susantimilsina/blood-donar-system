@@ -28,6 +28,9 @@ class DonorViewModel extends BaseViewModel {
   void changeNav() {
     _authenticationService.changeRoute(Routes.editProfileView);
   }
+  void changeNavToRoute(String route) {
+    _authenticationService.changeRoute(route);
+  }
 
   Future<void> changeNavForm() async {
     await _authenticationService.changeRoute(Routes.donateFormView);
@@ -43,7 +46,6 @@ class DonorViewModel extends BaseViewModel {
     RemoteMessage? initialMessage =
         await FirebaseMessaging.instance.getInitialMessage();
     if (initialMessage != null) {
-      print("Message her");
     }
     FirebaseMessaging.instance.getToken().then((value) {
       print("Toke" + value.toString());

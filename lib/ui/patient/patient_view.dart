@@ -172,7 +172,7 @@ class PatientView extends StatelessWidget {
                       ),
                     ListTile(
                       leading: const Icon(
-                        Icons.edit,
+                        Icons.history,
                       ),
                       title: const Text('Request History'),
                       onTap: () {
@@ -188,6 +188,16 @@ class PatientView extends StatelessWidget {
                       onTap: () {
                         Navigator.pop(context);
                         model.changeNavToRoute(Routes.editProfileView);
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.info_outline_rounded,
+                      ),
+                      title: const Text('About Us'),
+                      onTap: () {
+                        Navigator.pop(context);
+                        model.changeNavToRoute(Routes.aboutUsView);
                       },
                     ),
                     ListTile(

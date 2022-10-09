@@ -1,7 +1,9 @@
+import 'package:blood_doner/models/center_blood.dart';
 import 'package:flutter/material.dart';
+
 // ignore: must_be_immutable
 class BloodInforBar extends StatelessWidget {
-  dynamic data;
+  Blood data;
   BloodInforBar({Key? key, required this.data}) : super(key: key);
 
   @override
@@ -11,13 +13,13 @@ class BloodInforBar extends StatelessWidget {
       child: Row(children: [
         Expanded(
           child: Text(
-            data["bloodType"].toString(),
+            data.bloodType.toString(),
             style: const TextStyle(fontSize: 16),
           ),
         ),
         Expanded(
           child: Text(
-            data["pints"].toString(),
+            data.pints.toString(),
             style: const TextStyle(fontSize: 16),
           ),
         ),

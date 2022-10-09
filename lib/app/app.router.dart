@@ -10,11 +10,15 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
+import '../models/center_blood.dart';
 import '../ui/EditProfile/edit_profile_view.dart';
 import '../ui/ViewProfile/viewprofile_view.dart';
+import '../ui/about_us/about_us_view_model.dart';
 import '../ui/admin/admin_view.dart';
 import '../ui/admin/blood_request/blood_request_view.dart';
 import '../ui/admin/center/center_view.dart';
+import '../ui/admin/center/crud/add/add_center_view.dart';
+import '../ui/admin/center/crud/edit/edit_center_view.dart';
 import '../ui/completeProfile/complete_profile_view.dart';
 import '../ui/donate_view/donate_form_view.dart';
 import '../ui/donor/donor_view.dart';
@@ -42,6 +46,9 @@ class Routes {
   static const String patientHistoryView = '/patient-history-view';
   static const String bloodRequestView = '/blood-request-view';
   static const String centerView = '/center-view';
+  static const String aboutUsView = '/about-us-view';
+  static const String addCenterView = '/add-center-view';
+  static const String editCenterView = '/edit-center-view';
   static const all = <String>{
     startUpView,
     homeView,
@@ -58,6 +65,9 @@ class Routes {
     patientHistoryView,
     bloodRequestView,
     centerView,
+    aboutUsView,
+    addCenterView,
+    editCenterView,
   };
 }
 
@@ -80,6 +90,9 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.patientHistoryView, page: PatientHistoryView),
     RouteDef(Routes.bloodRequestView, page: BloodRequestView),
     RouteDef(Routes.centerView, page: CenterView),
+    RouteDef(Routes.aboutUsView, page: AboutUsView),
+    RouteDef(Routes.addCenterView, page: AddCenterView),
+    RouteDef(Routes.editCenterView, page: EditCenterView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -178,6 +191,31 @@ class StackedRouter extends RouterBase {
         settings: data,
       );
     },
+    AboutUsView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const AboutUsView(),
+        settings: data,
+      );
+    },
+    AddCenterView: (data) {
+      var args = data.getArgs<AddCenterViewArguments>(
+        orElse: () => AddCenterViewArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => AddCenterView(key: args.key),
+        settings: data,
+      );
+    },
+    EditCenterView: (data) {
+      var args = data.getArgs<EditCenterViewArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => EditCenterView(
+          key: args.key,
+          bloodCenter: args.bloodCenter,
+        ),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -190,4 +228,17 @@ class ViewProfileViewArguments {
   final Map<String, dynamic> userMap;
   final Key? key;
   ViewProfileViewArguments({required this.userMap, this.key});
+}
+
+/// AddCenterView arguments holder class
+class AddCenterViewArguments {
+  final Key? key;
+  AddCenterViewArguments({this.key});
+}
+
+/// EditCenterView arguments holder class
+class EditCenterViewArguments {
+  final Key? key;
+  final BloodCenter bloodCenter;
+  EditCenterViewArguments({this.key, required this.bloodCenter});
 }
