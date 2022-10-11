@@ -28,10 +28,15 @@ import '../ui/admin/blood_request/blood_request_view.dart';
 import '../ui/admin/blood_request/blood_request_view_model.dart';
 import '../ui/admin/center/center_view.dart';
 import '../ui/admin/center/crud/edit/edit_center_view.dart';
+import '../ui/admin/message_view/message_view.dart';
+import '../ui/admin/user_message/user_message_view.dart';
+import '../ui/admin/user_message/user_message_view_model.dart';
 import '../ui/home/home_view.dart';
 import '../ui/login/login_view.dart';
 import '../ui/completeProfile/complete_profile_view.dart';
 import '../ui/onboarding/onboarding_view.dart';
+import '../ui/other_message/other_message_view.dart';
+import '../ui/other_message/other_message_view_model.dart';
 import '../ui/patient/patient_view.dart';
 import '../ui/startup/startup_view.dart';
 
@@ -55,6 +60,9 @@ import '../ui/startup/startup_view.dart';
     MaterialRoute(page: AboutUsView),
     MaterialRoute(page: AddCenterView),
     MaterialRoute(page: EditCenterView),
+    MaterialRoute(page: MessageViewScreen),
+    MaterialRoute(page: OtherMessageViewScreen),
+    MaterialRoute(page: UserMessageView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
@@ -77,6 +85,8 @@ import '../ui/startup/startup_view.dart';
     LazySingleton(classType: AboutUsViewModel),
     LazySingleton(classType: AddCenterViewModel),
     LazySingleton(classType: EditCenterViewModel),
+    LazySingleton(classType: UserMessageViewModel),
+    LazySingleton(classType: OtherMessageViewModel),
   ],
   logger: StackedLogger(),
 )

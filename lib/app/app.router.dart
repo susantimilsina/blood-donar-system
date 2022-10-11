@@ -19,12 +19,15 @@ import '../ui/admin/blood_request/blood_request_view.dart';
 import '../ui/admin/center/center_view.dart';
 import '../ui/admin/center/crud/add/add_center_view.dart';
 import '../ui/admin/center/crud/edit/edit_center_view.dart';
+import '../ui/admin/message_view/message_view.dart';
+import '../ui/admin/user_message/user_message_view.dart';
 import '../ui/completeProfile/complete_profile_view.dart';
 import '../ui/donate_view/donate_form_view.dart';
 import '../ui/donor/donor_view.dart';
 import '../ui/home/home_view.dart';
 import '../ui/login/login_view.dart';
 import '../ui/onboarding/onboarding_view.dart';
+import '../ui/other_message/other_message_view.dart';
 import '../ui/patient/patient_history/patient_history_view.dart';
 import '../ui/patient/patient_view.dart';
 import '../ui/signup/signup_view.dart';
@@ -49,6 +52,9 @@ class Routes {
   static const String aboutUsView = '/about-us-view';
   static const String addCenterView = '/add-center-view';
   static const String editCenterView = '/edit-center-view';
+  static const String messageViewScreen = '/message-view-screen';
+  static const String otherMessageViewScreen = '/other-message-view-screen';
+  static const String userMessageView = '/user-message-view';
   static const all = <String>{
     startUpView,
     homeView,
@@ -68,6 +74,9 @@ class Routes {
     aboutUsView,
     addCenterView,
     editCenterView,
+    messageViewScreen,
+    otherMessageViewScreen,
+    userMessageView,
   };
 }
 
@@ -93,6 +102,9 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.aboutUsView, page: AboutUsView),
     RouteDef(Routes.addCenterView, page: AddCenterView),
     RouteDef(Routes.editCenterView, page: EditCenterView),
+    RouteDef(Routes.messageViewScreen, page: MessageViewScreen),
+    RouteDef(Routes.otherMessageViewScreen, page: OtherMessageViewScreen),
+    RouteDef(Routes.userMessageView, page: UserMessageView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -216,6 +228,29 @@ class StackedRouter extends RouterBase {
         settings: data,
       );
     },
+    MessageViewScreen: (data) {
+      var args = data.getArgs<MessageViewScreenArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => MessageViewScreen(
+          key: args.key,
+          userId: args.userId,
+          userName: args.userName,
+        ),
+        settings: data,
+      );
+    },
+    OtherMessageViewScreen: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => OtherMessageViewScreen(),
+        settings: data,
+      );
+    },
+    UserMessageView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const UserMessageView(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -241,4 +276,13 @@ class EditCenterViewArguments {
   final Key? key;
   final BloodCenter bloodCenter;
   EditCenterViewArguments({this.key, required this.bloodCenter});
+}
+
+/// MessageViewScreen arguments holder class
+class MessageViewScreenArguments {
+  final Key? key;
+  final String userId;
+  final String userName;
+  MessageViewScreenArguments(
+      {this.key, required this.userId, required this.userName});
 }

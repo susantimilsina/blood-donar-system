@@ -4,6 +4,7 @@ import 'package:stacked/stacked.dart';
 import '../../app/app.router.dart';
 import '../EditProfile/edit_profile_viewmodel.dart';
 import '../shared/ui_helper.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AdminView extends StatelessWidget {
   const AdminView({Key? key}) : super(key: key);
@@ -78,6 +79,16 @@ class AdminView extends StatelessWidget {
                         onTap: () {
                           Navigator.pop(context);
                           model.changeNav(Routes.bloodRequestView);
+                        },
+                      ),
+                      ListTile(
+                        leading: const Icon(
+                          Icons.message,
+                        ),
+                        title: const Text('Messages'),
+                        onTap: () {
+                          Navigator.pop(context);
+                          model.changeNav(Routes.userMessageView);
                         },
                       ),
                       ListTile(
@@ -311,10 +322,22 @@ class AdminView extends StatelessWidget {
                                             model.donorList[index].imageUrl,
                                           ),
                                         ),
-                                        title: Text(
-                                          "${model.donorList[index].userName} (${model.donorList[index].bloodGroup})",
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold),
+                                        title: Row(
+                                          children: [
+                                            Text(
+                                              "${model.donorList[index].userName} (${model.donorList[index].bloodGroup})",
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Icon(
+                                              Icons.circle,
+                                              color: model.donorList[index]
+                                                      .isAvailable
+                                                  ? Colors.green
+                                                  : Colors.red,
+                                              size: 10,
+                                            ),
+                                          ],
                                         ),
                                         subtitle: Column(
                                             crossAxisAlignment:
@@ -324,14 +347,52 @@ class AdminView extends StatelessWidget {
                                                   "Email : ${model.donorList[index].email}"),
                                               Text(
                                                   "Age : ${model.donorList[index].age}"),
+                                              model.donorList[index].number
+                                                      .isEmpty
+                                                  ? const Text("Number : N/A")
+                                                  : Text(
+                                                      "Number : ${model.donorList[index].number}"),
                                             ]),
-                                        trailing: Icon(
-                                          Icons.circle,
-                                          color:
-                                              model.donorList[index].isAvailable
-                                                  ? Colors.green
-                                                  : Colors.red,
-                                          size: 16,
+                                        trailing: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Material(
+                                                child: InkWell(
+                                                  child: const Icon(
+                                                    Icons.call,
+                                                    color: Colors.green,
+                                                    size: 22,
+                                                  ),
+                                                  onTap: () {
+                                                    if (model.donorList[index]
+                                                        .number.isEmpty) {
+                                                    } else {
+                                                      launch(
+                                                          "tel://${model.donorList[index].number}");
+                                                    }
+                                                  },
+                                                ),
+                                              ),
+                                            ),
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Material(
+                                                child: InkWell(
+                                                  child: const Icon(
+                                                    Icons.message,
+                                                    color: Colors.grey,
+                                                    size: 22,
+                                                  ),
+                                                  onTap: () {},
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -365,7 +426,53 @@ class AdminView extends StatelessWidget {
                                                   "Email : ${model.donorList[index].email}"),
                                               Text(
                                                   "Age : ${model.donorList[index].age}"),
+                                              model.donorList[index].number
+                                                      .isEmpty
+                                                  ? const Text("Number : N/A")
+                                                  : Text(
+                                                      "Number : ${model.donorList[index].number}"),
                                             ]),
+                                        trailing: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Material(
+                                                child: InkWell(
+                                                  child: const Icon(
+                                                    Icons.call,
+                                                    color: Colors.green,
+                                                    size: 22,
+                                                  ),
+                                                  onTap: () {
+                                                    if (model.donorList[index]
+                                                        .number.isEmpty) {
+                                                    } else {
+                                                      launch(
+                                                          "tel://${model.donorList[index].number}");
+                                                    }
+                                                  },
+                                                ),
+                                              ),
+                                            ),
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Material(
+                                                child: InkWell(
+                                                  child: const Icon(
+                                                    Icons.message,
+                                                    color: Colors.grey,
+                                                    size: 22,
+                                                  ),
+                                                  onTap: () {},
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     separatorBuilder:
