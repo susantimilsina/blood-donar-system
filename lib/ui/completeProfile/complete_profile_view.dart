@@ -146,7 +146,7 @@ class CompleteProfileView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  value: false,
+                  value: model.isAccepted,
                   onChanged: (val) {
                     model.toggleAccepted();
                   },

@@ -212,14 +212,12 @@ class MessagesStream extends StatelessWidget {
           final messageSender = data['sender'];
           final currentUser = loggedInuser!.uid;
           final timeStamp = data['timestamp'];
-          return messageSender.toString().startsWith(loggedInuser!.uid)
-              ? MessageBubble(
-                  sender: messageSender,
-                  text: messageText,
-                  timestamp: timeStamp,
-                  isMe: currentUser == messageSender,
-                )
-              : const SizedBox.shrink();
+          return MessageBubble(
+            sender: messageSender,
+            text: messageText,
+            timestamp: timeStamp,
+            isMe: currentUser == messageSender,
+          );
         }).toList();
 
         return Expanded(
