@@ -1,19 +1,12 @@
-import 'dart:developer';
-
-import 'package:analyzer/dart/ast/token.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:stacked/stacked.dart';
-
 import '../../app/app.locator.dart';
 import '../../app/app.router.dart';
 import '../../models/donationModel.dart';
 import '../../services/authentication_service.dart';
-import '../component/toast.dart';
 
 class DonorViewModel extends BaseViewModel {
   DonorViewModel() {
-    setupFirebaseMessage();
     getAllDontion();
   }
   void initialize() {
@@ -38,30 +31,6 @@ class DonorViewModel extends BaseViewModel {
 
   Future<void> performLogout() async {
     _authenticationService.signOut();
-    unsubscribeToTopic();
-  }
-
-  Future<void> setupFirebaseMessage() async {
-    subscribeToTopic();
-    RemoteMessage? initialMessage =
-        await FirebaseMessaging.instance.getInitialMessage();
-    if (initialMessage != null) {
-    }
-    FirebaseMessaging.instance.getToken().then((value) {
-      print("Toke" + value.toString());
-    });
-    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      String title = message.data['title'] ?? message.notification?.title ?? "";
-      String body = message.data['body'] ?? message.notification?.body ?? "";
-      log("Titel" + title.toString());
-      log("body" + body.toString());
-      ToastComponent.toast("$title \n$body");
-    });
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      log("Remote" + message.toString());
-    });
   }
 
   CollectionReference students =
@@ -88,29 +57,6 @@ class DonorViewModel extends BaseViewModel {
     getAllDontion();
   }
 
-  subscribeToTopic() async {
-    String userMail = (_authenticationService.user?.email ?? "")
-        .replaceAll("@", "")
-        .replaceAll(".", "");
 
-    String bloodGroup = _authenticationService.user?.bloodGroup ?? "";
-
-    await FirebaseMessaging.instance.subscribeToTopic(userMail);
-    await FirebaseMessaging.instance
-        .subscribeToTopic(bloodGroup.replaceAll("+", ""));
-  }
-
-  unsubscribeToTopic() async {
-    String userMail = (_authenticationService.user?.email ?? "")
-        .replaceAll("@", "")
-        .replaceAll(".", "");
-    String bloodGroup = _authenticationService.user?.bloodGroup ?? "";
-    Future.microtask(() async {
-      await FirebaseMessaging.instance.unsubscribeFromTopic(userMail);
-      await FirebaseMessaging.instance
-          .unsubscribeFromTopic(bloodGroup.replaceAll("+", ""));
-    });
-  }
 }
 
-Future<void> _firebaseMessagingBackgroundHandler(message) async {}

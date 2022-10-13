@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -11,9 +10,14 @@ final focusNode = FocusNode();
 
 // ignore: use_key_in_widget_constructors
 class MessageViewScreen extends StatefulWidget {
-  const MessageViewScreen({super.key, required this.userId, required this.userName});
+  const MessageViewScreen(
+      {super.key,
+      required this.userId,
+      required this.userName,
+      this.fromHomePage = false});
   final String userId;
   final String userName;
+  final bool fromHomePage;
   @override
   // ignore: library_private_types_in_public_api
   _ChatScreenState createState() => _ChatScreenState();
@@ -58,7 +62,7 @@ class _ChatScreenState extends State<MessageViewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Messages'),
+        title: Text(widget.userName),
       ),
       body: SafeArea(
         child: WillPopScope(
@@ -84,19 +88,27 @@ class _ChatScreenState extends State<MessageViewScreen> {
                         textInputAction: TextInputAction.send,
                         keyboardType: TextInputType.multiline,
                         focusNode: focusNode,
-                        onSubmitted: (value) {
-                          controller.clear();
-                          _firestore
-                              .collection('messages')
-                              .doc(widget.userId)
-                              .collection(
-                                  "${widget.userId}-${loggedInuser!.uid}")
-                              .add({
-                            'sender': loggedInuser!.uid,
-                            'text': messageText,
-                            'timestamp': Timestamp.now(),
-                          });
-                        },
+                        // onSubmitted: (value) {
+                        //   controller.clear();
+                        //   if (widget.fromHomePage) {
+                        //     _firestore
+                        //         .collection('messages')
+                        //         .doc(widget.userId)
+                        //         .set({
+                        //       "username": widget.userName,
+                        //     });
+                        //   }
+                        //   _firestore
+                        //       .collection('messages')
+                        //       .doc(widget.userId)
+                        //       .collection(
+                        //           "${widget.userId}-${loggedInuser!.uid}")
+                        //       .add({
+                        //     'sender': loggedInuser!.uid,
+                        //     'text': messageText,
+                        //     'timestamp': Timestamp.now(),
+                        //   });
+                        // },
                         maxLines: null,
                         controller: controller,
                         onChanged: (value) {
@@ -118,6 +130,14 @@ class _ChatScreenState extends State<MessageViewScreen> {
                           icon: const Icon(Icons.send),
                           onPressed: () {
                             controller.clear();
+                            if (widget.fromHomePage) {
+                              _firestore
+                                  .collection('messages')
+                                  .doc(widget.userId)
+                                  .set({
+                                "username": widget.userName,
+                              });
+                            }
                             _firestore
                                 .collection('messages')
                                 .doc(widget.userId)

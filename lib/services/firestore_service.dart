@@ -35,8 +35,11 @@ class FirestoreService {
 
   Future<List<Map<String, dynamic>>> fetchAllUsers() async {
     var docref = await _userColletionreference.get();
-    final allDocs =
-        docref.docs.map((e) => e.data() as Map<String, dynamic>).toList();
+    final allDocs = docref.docs.map((doc) {
+      var data = doc.data() as Map<String, dynamic>;
+      data.addAll({"id": doc.id});
+      return data;
+    }).toList();
     return allDocs;
   }
 }

@@ -166,7 +166,7 @@ class CompleteProfileViewModel extends BaseViewModel {
           backgroundColor: Colors.red);
       return;
     }
-    if (isAccepted) {
+    if (!isAccepted) {
       Get.snackbar("Accept terms and condition",
           "Please read and accept terms and conditions",
           snackPosition: SnackPosition.BOTTOM,
@@ -189,6 +189,7 @@ class CompleteProfileViewModel extends BaseViewModel {
           age: ageController.text.trim(),
           number: numberController.text.trim(),
           role: selectedRole,
+          date: DateTime.now().toString(),
           imageUrl: cloudStorageResult.imageUrl,
           longitude: (longitude ?? 0.0).toString(),
           latitude: (latitude ?? 0.0).toString(),

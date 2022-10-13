@@ -29,6 +29,8 @@ import '../ui/admin/blood_request/blood_request_view_model.dart';
 import '../ui/admin/center/center_view.dart';
 import '../ui/admin/center/crud/edit/edit_center_view.dart';
 import '../ui/admin/message_view/message_view.dart';
+import '../ui/admin/notification/notification_view.dart';
+import '../ui/admin/report/report_view.dart';
 import '../ui/admin/user_message/user_message_view.dart';
 import '../ui/admin/user_message/user_message_view_model.dart';
 import '../ui/home/home_view.dart';
@@ -63,6 +65,8 @@ import '../ui/startup/startup_view.dart';
     MaterialRoute(page: MessageViewScreen),
     MaterialRoute(page: OtherMessageViewScreen),
     MaterialRoute(page: UserMessageView),
+    MaterialRoute(page: NotificationViewScreen),
+    MaterialRoute(page: ReportView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),

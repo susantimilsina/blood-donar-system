@@ -93,6 +93,26 @@ class AdminView extends StatelessWidget {
                       ),
                       ListTile(
                         leading: const Icon(
+                          Icons.notifications,
+                        ),
+                        title: const Text('Send Notifications'),
+                        onTap: () {
+                          Navigator.pop(context);
+                          model.changeNav(Routes.notificationViewScreen);
+                        },
+                      ),
+                      // ListTile(
+                      //   leading: const Icon(
+                      //     Icons.report,
+                      //   ),
+                      //   title: const Text('Report'),
+                      //   onTap: () {
+                      //     Navigator.pop(context);
+                      //     model.changeNav(Routes.reportView);
+                      //   },
+                      // ),
+                      ListTile(
+                        leading: const Icon(
                           Icons.logout,
                         ),
                         title: const Text('Logout'),
@@ -388,7 +408,19 @@ class AdminView extends StatelessWidget {
                                                     color: Colors.grey,
                                                     size: 22,
                                                   ),
-                                                  onTap: () {},
+                                                  onTap: () {
+                                                    model.changeNavToRoute(
+                                                        route: Routes
+                                                            .messageViewScreen,
+                                                        id: model
+                                                            .donorList[index].id
+                                                            .toString(),
+                                                        userName: model
+                                                            .donorList[index]
+                                                            .userName
+                                                            .toString(),
+                                                        fromHome: true);
+                                                  },
                                                 ),
                                               ),
                                             ),
@@ -467,7 +499,19 @@ class AdminView extends StatelessWidget {
                                                     color: Colors.grey,
                                                     size: 22,
                                                   ),
-                                                  onTap: () {},
+                                                  onTap: () {
+                                                    model.changeNavToRoute(
+                                                        route: Routes
+                                                            .messageViewScreen,
+                                                        id: model
+                                                            .donorList[index].id
+                                                            .toString(),
+                                                        userName: model
+                                                            .donorList[index]
+                                                            .userName
+                                                            .toString(),
+                                                        fromHome: true);
+                                                  },
                                                 ),
                                               ),
                                             ),

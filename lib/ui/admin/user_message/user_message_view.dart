@@ -23,6 +23,7 @@ class UserMessageView extends StatelessWidget {
                     elevation: 0,
                     child: ListTile(
                       onTap: () {
+                        
                         model.changeNavToRoute(
                             Routes.messageViewScreen,
                             model.displayList[index]["id"].toString(),

@@ -1,6 +1,10 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server/gmail.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../app/app.locator.dart';
@@ -12,6 +16,8 @@ class BloodRequestViewModel extends BaseViewModel {
   BloodRequestViewModel() {
     getAllHistory();
   }
+  TextEditingController titleCon = TextEditingController();
+  TextEditingController descriptionCon = TextEditingController();
 
   List<Map<String, dynamic>> currentDataList = [];
   CollectionReference students =
@@ -43,5 +49,48 @@ class BloodRequestViewModel extends BaseViewModel {
     } else {
       return {};
     }
+  }
+
+  Future<void> addNotification(String mail) async {
+    setBusy(true);
+    notifyListeners();
+    var userData = await getUser(mail);
+
+    String username = 'donateblood.bdh1@gmail.com';
+    String password = 'zsffdkbrugavargj';
+
+    final smtpServer = gmail(username, password);
+    final message = Message()
+      ..from = Address(username, 'Blood Hub')
+      ..recipients.add(userData["email"].toString())
+      ..subject = titleCon.text
+      ..text = descriptionCon.text;
+
+    try {
+      final sendReport = await send(message, smtpServer);
+      Get.snackbar(
+        "Success",
+        "Notification Send Successfully",
+        colorText: Colors.white,
+        backgroundColor: Colors.green,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    } on MailerException catch (e) {
+      for (var p in e.problems) {
+        log('Problem: ${p.code}: ${p.msg}');
+      }
+
+      Get.snackbar(
+        "Failed",
+        "Notification Send Failed!!",
+        colorText: Colors.white,
+        backgroundColor: Colors.red,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
+    titleCon.text = "";
+    descriptionCon.text = "";
+    setBusy(false);
+    notifyListeners();
   }
 }

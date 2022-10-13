@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 class UserModel {
+  String? id;
   String userName;
   String email;
   String bloodGroup;
@@ -11,16 +12,19 @@ class UserModel {
   String imageFileName;
   String latitude;
   String longitude;
+  String date;
   bool isAvailable;
   UserModel(
       {required this.userName,
       required this.email,
+      this.id,
       required this.bloodGroup,
       required this.age,
       required this.number,
       required this.role,
       required this.imageUrl,
       required this.imageFileName,
+      required this.date,
       required this.latitude,
       required this.longitude,
       required this.isAvailable});
@@ -42,6 +46,8 @@ class UserModel {
         bloodGroup: bloodGroup ?? this.bloodGroup,
         age: age ?? this.age,
         number: number,
+        date: date,
+        id: id ?? "",
         role: role ?? this.role,
         imageUrl: imageUrl ?? this.imageUrl,
         imageFileName: imageFileName ?? this.imageFileName,
@@ -57,8 +63,10 @@ class UserModel {
     result.addAll({'email': email});
     result.addAll({'bloodGroup': bloodGroup});
     result.addAll({'age': age});
+    result.addAll({'id': id});
     result.addAll({'number': number});
     result.addAll({'role': role});
+    result.addAll({'date': date});
     result.addAll({'latitude': latitude});
     result.addAll({'longitude': longitude});
     result.addAll({'imageUrl': imageUrl});
@@ -74,8 +82,10 @@ class UserModel {
         email: map['email'] ?? '',
         bloodGroup: map['bloodGroup'] ?? '',
         age: map['age'] ?? '',
+        id: map['id'] ?? '',
         number: map['number'] ?? '',
         role: map['role'] ?? '',
+        date: map['date'] ?? '',
         imageUrl: map['imageUrl'] ?? '',
         imageFileName: map['imageFileName'] ?? '',
         latitude: map['latitude'] ?? '0.0',
@@ -102,7 +112,9 @@ class UserModel {
         other.email == email &&
         other.bloodGroup == bloodGroup &&
         other.age == age &&
+        other.id == id &&
         other.number == number &&
+        other.date == date &&
         other.role == role &&
         other.imageUrl == imageUrl &&
         other.latitude == latitude &&
@@ -117,8 +129,10 @@ class UserModel {
         email.hashCode ^
         bloodGroup.hashCode ^
         age.hashCode ^
+        id.hashCode ^
         number.hashCode ^
         role.hashCode ^
+        date.hashCode ^
         imageUrl.hashCode ^
         imageFileName.hashCode ^
         latitude.hashCode ^

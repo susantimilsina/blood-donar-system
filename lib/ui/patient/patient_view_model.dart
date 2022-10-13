@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacked/stacked.dart';
 import '../../app/app.locator.dart';
 import '../../services/authentication_service.dart';
+import 'package:http/http.dart' as http;
 
 class PatientViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
@@ -51,7 +54,7 @@ class PatientViewModel extends BaseViewModel {
   String selectedBloodgroup = "A+";
 
   void onChangedBloodgroup(String? newBloodgroup) {
-    selectedBloodgroup = newBloodgroup ?? selectedBloodgroup;
+    selectedBloodgroup = newBloodgroup!;
     notifyListeners();
   }
 
@@ -69,6 +72,7 @@ class PatientViewModel extends BaseViewModel {
   Future<void> createDonation() async {
     setBusy(true);
     notifyListeners();
+    await sendNotification();
     students.add({
       "blood_type": selectedBloodgroup.toString(),
       "date": DateTime.now().toString().split(' ')[0],
@@ -97,38 +101,38 @@ class PatientViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  // Future sendNotification() async {
-  //purposeController -> Notification description
-  //selectedBloodgroup -> Notification to those with this blood group
+  Future sendNotification() async {
+    // purposeController -> Notification description
+    // selectedBloodgroup -> Notification to those with this blood group
 
-  // const String serverToken =
-  //     "AAAAJ_1Hx6E:APA91bEfyBWeWgRrNRRu6UInbILbuVOoNaLF_Asf4Y5X0BJJOSMbNgEuEibkumEkyrEtDYiyNoSUsI7k28Zg54bjiicukJYV8GQgrHgkMKa6V_5QxVE6Yjv1qqm_8wBsfSF57UuP5Lca";
-  // String title = "${_authenticationService.user?.userName} is need of blood";
-  // try {
-  //   await http.post(
-  //     Uri.parse('https://fcm.googleapis.com/fcm/send'),
-  //     headers: <String, String>{
-  //       'Content-Type': 'application/json',
-  //       'Authorization': 'key=$serverToken',
-  //     },
-  //     body: jsonEncode(
-  //       <String, dynamic>{
-  //         'notification': <String, dynamic>{
-  //           'body': purposeController.text,
-  //           'title': title,
-  //         },
-  //         "data": {
-  //           "click_action": "FLUTTER_NOTIFICATION_CLICK",
-  //           'body': purposeController.text,
-  //           'title': title,
-  //         },
-  //         'priority': 'high',
-  //         'to': "/topics/${selectedBloodgroup.replaceAll("+", "")}",
-  //       },
-  //     ),
-  //   );
-  // } catch (e) {
-  //   print("Error=${e.toString()}");
-  // }
-  // }
+    const String serverToken =
+        "AAAAJ_1Hx6E:APA91bEfyBWeWgRrNRRu6UInbILbuVOoNaLF_Asf4Y5X0BJJOSMbNgEuEibkumEkyrEtDYiyNoSUsI7k28Zg54bjiicukJYV8GQgrHgkMKa6V_5QxVE6Yjv1qqm_8wBsfSF57UuP5Lca";
+    String title = "${_authenticationService.user?.userName} is need of blood";
+    try {
+      await http.post(
+        Uri.parse('https://fcm.googleapis.com/fcm/send'),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+          'Authorization': 'key=$serverToken',
+        },
+        body: jsonEncode(
+          <String, dynamic>{
+            'notification': <String, dynamic>{
+              'body': purposeController.text,
+              'title': title,
+            },
+            "data": {
+              "click_action": "FLUTTER_NOTIFICATION_CLICK",
+              'body': purposeController.text,
+              'title': title,
+            },
+            'priority': 'high',
+            'to': "/topics/admin",
+          },
+        ),
+      );
+    } catch (e) {
+      print("Error=${e.toString()}");
+    }
+  }
 }

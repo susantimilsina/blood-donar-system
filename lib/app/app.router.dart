@@ -20,6 +20,8 @@ import '../ui/admin/center/center_view.dart';
 import '../ui/admin/center/crud/add/add_center_view.dart';
 import '../ui/admin/center/crud/edit/edit_center_view.dart';
 import '../ui/admin/message_view/message_view.dart';
+import '../ui/admin/notification/notification_view.dart';
+import '../ui/admin/report/report_view.dart';
 import '../ui/admin/user_message/user_message_view.dart';
 import '../ui/completeProfile/complete_profile_view.dart';
 import '../ui/donate_view/donate_form_view.dart';
@@ -55,6 +57,8 @@ class Routes {
   static const String messageViewScreen = '/message-view-screen';
   static const String otherMessageViewScreen = '/other-message-view-screen';
   static const String userMessageView = '/user-message-view';
+  static const String notificationViewScreen = '/notification-view-screen';
+  static const String reportView = '/report-view';
   static const all = <String>{
     startUpView,
     homeView,
@@ -77,6 +81,8 @@ class Routes {
     messageViewScreen,
     otherMessageViewScreen,
     userMessageView,
+    notificationViewScreen,
+    reportView,
   };
 }
 
@@ -105,6 +111,8 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.messageViewScreen, page: MessageViewScreen),
     RouteDef(Routes.otherMessageViewScreen, page: OtherMessageViewScreen),
     RouteDef(Routes.userMessageView, page: UserMessageView),
+    RouteDef(Routes.notificationViewScreen, page: NotificationViewScreen),
+    RouteDef(Routes.reportView, page: ReportView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -180,8 +188,11 @@ class StackedRouter extends RouterBase {
       );
     },
     PatientView: (data) {
+      var args = data.getArgs<PatientViewArguments>(
+        orElse: () => PatientViewArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => const PatientView(),
+        builder: (context) => PatientView(key: args.key),
         settings: data,
       );
     },
@@ -235,6 +246,7 @@ class StackedRouter extends RouterBase {
           key: args.key,
           userId: args.userId,
           userName: args.userName,
+          fromHomePage: args.fromHomePage,
         ),
         settings: data,
       );
@@ -251,6 +263,18 @@ class StackedRouter extends RouterBase {
         settings: data,
       );
     },
+    NotificationViewScreen: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const NotificationViewScreen(),
+        settings: data,
+      );
+    },
+    ReportView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const ReportView(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -263,6 +287,12 @@ class ViewProfileViewArguments {
   final Map<String, dynamic> userMap;
   final Key? key;
   ViewProfileViewArguments({required this.userMap, this.key});
+}
+
+/// PatientView arguments holder class
+class PatientViewArguments {
+  final Key? key;
+  PatientViewArguments({this.key});
 }
 
 /// AddCenterView arguments holder class
@@ -283,6 +313,10 @@ class MessageViewScreenArguments {
   final Key? key;
   final String userId;
   final String userName;
+  final bool fromHomePage;
   MessageViewScreenArguments(
-      {this.key, required this.userId, required this.userName});
+      {this.key,
+      required this.userId,
+      required this.userName,
+      this.fromHomePage = false});
 }
