@@ -6,14 +6,15 @@ import 'package:stacked/stacked.dart';
 import 'about_us_view.dart';
 
 class AboutUsView extends StatelessWidget {
-  const AboutUsView({Key? key}) : super(key: key);
+  const AboutUsView({Key? key, required this.fromPatient}) : super(key: key);
+  final bool fromPatient;
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<AboutUsViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
-          title: const Text("About Us"),
+          title: Text(fromPatient ? "Contact Us" : "About Us"),
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.orange,
@@ -32,20 +33,24 @@ class AboutUsView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "ABOUT US",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text(
-                  "Blood Donor Hub is a licensed health care, blood donation centre and blood collection service based in Parramatta, New South Wales. We collect blood from various donors and help in minimizing the blood shortage. We directly supply the collected blood to hospitals, blood banks, biotechnology companies, and other research institutions.",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
+              fromPatient
+                  ? const SizedBox.shrink()
+                  : const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        "ABOUT US",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+              fromPatient
+                  ? const SizedBox.shrink()
+                  : const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        "Blood Donor Hub is a licensed health care, blood donation centre and blood collection service based in Parramatta, New South Wales. We collect blood from various donors and help in minimizing the blood shortage. We directly supply the collected blood to hospitals, blood banks, biotechnology companies, and other research institutions.",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
               verticalSpaceMedium,
               const Padding(
                 padding: EdgeInsets.all(8.0),

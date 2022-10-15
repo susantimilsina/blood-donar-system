@@ -1,3 +1,4 @@
+import 'package:blood_doner/widgets/dumb/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import '../../app/app.router.dart';
@@ -71,7 +72,7 @@ class DonorView extends StatelessWidget {
                   title: const Text('About Us'),
                   onTap: () {
                     Navigator.pop(context);
-                    model.changeNavToRoute(Routes.aboutUsView);
+                    model.changeNavToRouteSpecial(Routes.aboutUsView);
                   },
                 ),
                 ListTile(
@@ -102,45 +103,51 @@ class DonorView extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(
                             left: 8.0, right: 8.0, bottom: 8.0),
-                        child: ListView.separated(
-                          itemCount: model.displayList.length,
-                          itemBuilder: (context, index) => Card(
-                            elevation: 3,
-                            child: ListTile(
-                              title: Text(
-                                model.displayList[index].donatedDate.toString(),
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              subtitle: Text(
-                                model.displayList[index].center,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              trailing: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    model.displayList[index].pints,
-                                    style: const TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
+                        child: model.displayList.isEmpty
+                            ? EmptyWidget(data: "Donation history is Empty")
+                            : ListView.separated(
+                                itemCount: model.displayList.length,
+                                itemBuilder: (context, index) => Card(
+                                  elevation: 3,
+                                  child: ListTile(
+                                    title: Text(
+                                      model.displayList[index].donatedDate
+                                          .toString(),
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    subtitle: Text(
+                                      model.displayList[index].center,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    trailing: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          model.displayList[index].pints,
+                                          style: const TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        const Text(
+                                          "PINTS",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  const Text(
-                                    "PINTS",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16),
-                                  ),
-                                ],
+                                ),
+                                separatorBuilder:
+                                    (BuildContext context, int index) {
+                                  return const SizedBox(height: 10);
+                                },
                               ),
-                            ),
-                          ),
-                          separatorBuilder: (BuildContext context, int index) {
-                            return const SizedBox(height: 10);
-                          },
-                        ),
                       ),
                     ),
                   ),

@@ -3,6 +3,7 @@ import 'package:blood_doner/app/app.router.dart';
 import 'package:blood_doner/models/center_blood.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import '../../../widgets/dumb/empty_widget.dart';
 import '../blood_card/blood_card_view.dart';
 import 'center_view_model.dart';
 
@@ -36,12 +37,7 @@ class CenterView extends StatelessWidget {
                       padding: const EdgeInsets.only(
                           left: 8.0, right: 8.0, bottom: 8.0),
                       child: model.currentDataList.isEmpty
-                          ? Center(
-                              child: Text(
-                                "No Blood Center found",
-                                style: Theme.of(context).textTheme.headline5,
-                              ),
-                            )
+                          ? EmptyWidget(data: "Blood Center is Empty")
                           : ListView.separated(
                               itemCount: model.currentDataList.length,
                               itemBuilder: (context, index) => OpenContainer(

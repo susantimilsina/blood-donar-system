@@ -215,8 +215,12 @@ class StackedRouter extends RouterBase {
       );
     },
     AboutUsView: (data) {
+      var args = data.getArgs<AboutUsViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => const AboutUsView(),
+        builder: (context) => AboutUsView(
+          key: args.key,
+          fromPatient: args.fromPatient,
+        ),
         settings: data,
       );
     },
@@ -293,6 +297,13 @@ class ViewProfileViewArguments {
 class PatientViewArguments {
   final Key? key;
   PatientViewArguments({this.key});
+}
+
+/// AboutUsView arguments holder class
+class AboutUsViewArguments {
+  final Key? key;
+  final bool fromPatient;
+  AboutUsViewArguments({this.key, required this.fromPatient});
 }
 
 /// AddCenterView arguments holder class

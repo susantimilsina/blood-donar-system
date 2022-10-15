@@ -216,7 +216,7 @@ class PatientView extends StatelessWidget {
                       leading: const Icon(
                         Icons.info_outline_rounded,
                       ),
-                      title: const Text('About Us'),
+                      title: const Text('Contact Us'),
                       onTap: () {
                         Navigator.pop(context);
                         model.changeNavToRoute(Routes.aboutUsView);

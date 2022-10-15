@@ -2,6 +2,8 @@ import 'package:blood_doner/ui/patient/patient_history/patient_history_view_mode
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../widgets/dumb/empty_widget.dart';
+
 class PatientHistoryView extends StatelessWidget {
   const PatientHistoryView({Key? key}) : super(key: key);
 
@@ -21,12 +23,7 @@ class PatientHistoryView extends StatelessWidget {
                       padding: const EdgeInsets.only(
                           left: 8.0, right: 8.0, bottom: 8.0),
                       child: model.currentDataList.isEmpty
-                          ? Center(
-                              child: Text(
-                                "No History found",
-                                style: Theme.of(context).textTheme.headline5,
-                              ),
-                            )
+                          ? EmptyWidget(data: "No history is Empty")
                           : ListView.separated(
                               itemCount: model.currentDataList.length,
                               itemBuilder: (context, index) => Card(

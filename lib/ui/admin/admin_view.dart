@@ -2,6 +2,7 @@ import 'package:blood_doner/ui/admin/admin_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import '../../app/app.router.dart';
+import '../../widgets/dumb/empty_widget.dart';
 import '../EditProfile/edit_profile_viewmodel.dart';
 import '../shared/ui_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -331,199 +332,220 @@ class AdminView extends StatelessWidget {
                             padding: const EdgeInsets.only(
                                 left: 8.0, right: 8.0, bottom: 8.0),
                             child: model.userValue.toLowerCase() == "donor"
-                                ? ListView.separated(
-                                    itemCount: model.donorList.length,
-                                    itemBuilder: (context, index) => Card(
-                                      elevation: 3,
-                                      child: ListTile(
-                                        leading: CircleAvatar(
-                                          backgroundColor: Colors.transparent,
-                                          backgroundImage: NetworkImage(
-                                            model.donorList[index].imageUrl,
+                                ? model.donorList.isEmpty
+                                    ? EmptyWidget(data: "Donor List is Empty")
+                                    : ListView.separated(
+                                        itemCount: model.donorList.length,
+                                        itemBuilder: (context, index) => Card(
+                                          elevation: 3,
+                                          child: ListTile(
+                                            leading: CircleAvatar(
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              backgroundImage: NetworkImage(
+                                                model.donorList[index].imageUrl,
+                                              ),
+                                            ),
+                                            title: Row(
+                                              children: [
+                                                Text(
+                                                  "${model.donorList[index].userName} (${model.donorList[index].bloodGroup})",
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Icon(
+                                                  Icons.circle,
+                                                  color: model.donorList[index]
+                                                          .isAvailable
+                                                      ? Colors.green
+                                                      : Colors.red,
+                                                  size: 10,
+                                                ),
+                                              ],
+                                            ),
+                                            subtitle: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                      "Email : ${model.donorList[index].email}"),
+                                                  Text(
+                                                      "Age : ${model.donorList[index].age}"),
+                                                  model.donorList[index].number
+                                                          .isEmpty
+                                                      ? const Text(
+                                                          "Number : N/A")
+                                                      : Text(
+                                                          "Number : ${model.donorList[index].number}"),
+                                                ]),
+                                            trailing: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(50),
+                                                  child: Material(
+                                                    child: InkWell(
+                                                      child: const Icon(
+                                                        Icons.call,
+                                                        color: Colors.green,
+                                                        size: 22,
+                                                      ),
+                                                      onTap: () {
+                                                        if (model
+                                                            .donorList[index]
+                                                            .number
+                                                            .isEmpty) {
+                                                        } else {
+                                                          launch(
+                                                              "tel://${model.donorList[index].number}");
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
+                                                ),
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(50),
+                                                  child: Material(
+                                                    child: InkWell(
+                                                      child: const Icon(
+                                                        Icons.message,
+                                                        color: Colors.grey,
+                                                        size: 22,
+                                                      ),
+                                                      onTap: () {
+                                                        model.changeNavToRoute(
+                                                            route: Routes
+                                                                .messageViewScreen,
+                                                            id: model
+                                                                .donorList[
+                                                                    index]
+                                                                .id
+                                                                .toString(),
+                                                            userName: model
+                                                                .donorList[
+                                                                    index]
+                                                                .userName
+                                                                .toString(),
+                                                            fromHome: true);
+                                                      },
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                        title: Row(
-                                          children: [
-                                            Text(
-                                              "${model.donorList[index].userName} (${model.donorList[index].bloodGroup})",
+                                        separatorBuilder:
+                                            (BuildContext context, int index) {
+                                          return const SizedBox(height: 10);
+                                        },
+                                      )
+                                : model.patientList.isEmpty
+                                    ? EmptyWidget(data: "Patient List is Empty")
+                                    : ListView.separated(
+                                        itemCount: model.patientList.length,
+                                        itemBuilder: (context, index) => Card(
+                                          elevation: 3,
+                                          child: ListTile(
+                                            leading: CircleAvatar(
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              backgroundImage: NetworkImage(
+                                                model.donorList[index].imageUrl,
+                                              ),
+                                            ),
+                                            title: Text(
+                                              model.donorList[index].userName
+                                                  .toString(),
                                               style: const TextStyle(
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            Icon(
-                                              Icons.circle,
-                                              color: model.donorList[index]
-                                                      .isAvailable
-                                                  ? Colors.green
-                                                  : Colors.red,
-                                              size: 10,
-                                            ),
-                                          ],
-                                        ),
-                                        subtitle: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                  "Email : ${model.donorList[index].email}"),
-                                              Text(
-                                                  "Age : ${model.donorList[index].age}"),
-                                              model.donorList[index].number
-                                                      .isEmpty
-                                                  ? const Text("Number : N/A")
-                                                  : Text(
-                                                      "Number : ${model.donorList[index].number}"),
-                                            ]),
-                                        trailing: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              child: Material(
-                                                child: InkWell(
-                                                  child: const Icon(
-                                                    Icons.call,
-                                                    color: Colors.green,
-                                                    size: 22,
-                                                  ),
-                                                  onTap: () {
-                                                    if (model.donorList[index]
-                                                        .number.isEmpty) {
-                                                    } else {
-                                                      launch(
-                                                          "tel://${model.donorList[index].number}");
-                                                    }
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              child: Material(
-                                                child: InkWell(
-                                                  child: const Icon(
-                                                    Icons.message,
-                                                    color: Colors.grey,
-                                                    size: 22,
-                                                  ),
-                                                  onTap: () {
-                                                    model.changeNavToRoute(
-                                                        route: Routes
-                                                            .messageViewScreen,
-                                                        id: model
-                                                            .donorList[index].id
-                                                            .toString(),
-                                                        userName: model
+                                            subtitle: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                      "Email : ${model.donorList[index].email}"),
+                                                  Text(
+                                                      "Age : ${model.donorList[index].age}"),
+                                                  model.donorList[index].number
+                                                          .isEmpty
+                                                      ? const Text(
+                                                          "Number : N/A")
+                                                      : Text(
+                                                          "Number : ${model.donorList[index].number}"),
+                                                ]),
+                                            trailing: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(50),
+                                                  child: Material(
+                                                    child: InkWell(
+                                                      child: const Icon(
+                                                        Icons.call,
+                                                        color: Colors.green,
+                                                        size: 22,
+                                                      ),
+                                                      onTap: () {
+                                                        if (model
                                                             .donorList[index]
-                                                            .userName
-                                                            .toString(),
-                                                        fromHome: true);
-                                                  },
+                                                            .number
+                                                            .isEmpty) {
+                                                        } else {
+                                                          launch(
+                                                              "tel://${model.donorList[index].number}");
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(50),
+                                                  child: Material(
+                                                    child: InkWell(
+                                                      child: const Icon(
+                                                        Icons.message,
+                                                        color: Colors.grey,
+                                                        size: 22,
+                                                      ),
+                                                      onTap: () {
+                                                        model.changeNavToRoute(
+                                                            route: Routes
+                                                                .messageViewScreen,
+                                                            id: model
+                                                                .donorList[
+                                                                    index]
+                                                                .id
+                                                                .toString(),
+                                                            userName: model
+                                                                .donorList[
+                                                                    index]
+                                                                .userName
+                                                                .toString(),
+                                                            fromHome: true);
+                                                      },
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    separatorBuilder:
-                                        (BuildContext context, int index) {
-                                      return const SizedBox(height: 10);
-                                    },
-                                  )
-                                : ListView.separated(
-                                    itemCount: model.patientList.length,
-                                    itemBuilder: (context, index) => Card(
-                                      elevation: 3,
-                                      child: ListTile(
-                                        leading: CircleAvatar(
-                                          backgroundColor: Colors.transparent,
-                                          backgroundImage: NetworkImage(
-                                            model.donorList[index].imageUrl,
                                           ),
                                         ),
-                                        title: Text(
-                                          model.donorList[index].userName
-                                              .toString(),
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        subtitle: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                  "Email : ${model.donorList[index].email}"),
-                                              Text(
-                                                  "Age : ${model.donorList[index].age}"),
-                                              model.donorList[index].number
-                                                      .isEmpty
-                                                  ? const Text("Number : N/A")
-                                                  : Text(
-                                                      "Number : ${model.donorList[index].number}"),
-                                            ]),
-                                        trailing: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              child: Material(
-                                                child: InkWell(
-                                                  child: const Icon(
-                                                    Icons.call,
-                                                    color: Colors.green,
-                                                    size: 22,
-                                                  ),
-                                                  onTap: () {
-                                                    if (model.donorList[index]
-                                                        .number.isEmpty) {
-                                                    } else {
-                                                      launch(
-                                                          "tel://${model.donorList[index].number}");
-                                                    }
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              child: Material(
-                                                child: InkWell(
-                                                  child: const Icon(
-                                                    Icons.message,
-                                                    color: Colors.grey,
-                                                    size: 22,
-                                                  ),
-                                                  onTap: () {
-                                                    model.changeNavToRoute(
-                                                        route: Routes
-                                                            .messageViewScreen,
-                                                        id: model
-                                                            .donorList[index].id
-                                                            .toString(),
-                                                        userName: model
-                                                            .donorList[index]
-                                                            .userName
-                                                            .toString(),
-                                                        fromHome: true);
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                        separatorBuilder:
+                                            (BuildContext context, int index) {
+                                          return const SizedBox(height: 10);
+                                        },
                                       ),
-                                    ),
-                                    separatorBuilder:
-                                        (BuildContext context, int index) {
-                                      return const SizedBox(height: 10);
-                                    },
-                                  ),
                           ),
                         ),
                       ],

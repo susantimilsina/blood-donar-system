@@ -1,9 +1,10 @@
 import 'dart:convert';
-
+import 'package:blood_doner/app/app.router.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart' as Service;
 import '../../app/app.locator.dart';
 import '../../services/authentication_service.dart';
 import 'package:http/http.dart' as http;
@@ -11,6 +12,8 @@ import 'package:http/http.dart' as http;
 class PatientViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
+        final Service.NavigationService _navigationService = locator<Service.NavigationService>();
+
 
   TextEditingController purposeController = TextEditingController();
   double? latitude;
@@ -59,7 +62,7 @@ class PatientViewModel extends BaseViewModel {
   }
 
   void changeNavToRoute(String route) {
-    _authenticationService.changeRoute(route);
+    _navigationService.navigateTo(route, arguments: AboutUsViewArguments(fromPatient: true));
   }
 
   Future<void> performLogout() async {

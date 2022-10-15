@@ -4,6 +4,7 @@ import '../../app/app.locator.dart';
 import '../../app/app.router.dart';
 import '../../models/donationModel.dart';
 import '../../services/authentication_service.dart';
+import 'package:stacked_services/stacked_services.dart' as Service;
 
 class DonorViewModel extends BaseViewModel {
   DonorViewModel() {
@@ -17,16 +18,24 @@ class DonorViewModel extends BaseViewModel {
   List<DonationModel> displayList = [];
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
+  final Service.NavigationService _navigationService =
+      locator<Service.NavigationService>();
 
   void changeNav() {
     _authenticationService.changeRoute(Routes.editProfileView);
   }
+
   void changeNavToRoute(String route) {
     _authenticationService.changeRoute(route);
   }
 
   Future<void> changeNavForm() async {
     await _authenticationService.changeRoute(Routes.donateFormView);
+  }
+
+  void changeNavToRouteSpecial(String route) {
+    _navigationService.navigateTo(route,
+        arguments: AboutUsViewArguments(fromPatient: false));
   }
 
   Future<void> performLogout() async {
@@ -56,7 +65,4 @@ class DonorViewModel extends BaseViewModel {
   Future futureToRun() async {
     getAllDontion();
   }
-
-
 }
-
