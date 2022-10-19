@@ -27,13 +27,14 @@ class BloodRequestViewModel extends BaseViewModel {
     setBusy(true);
     notifyListeners();
     List<Map<String, dynamic>> finalResult = [];
-    QuerySnapshot data = await students.get();
+    QuerySnapshot data = await students.orderBy("date", descending: true).get();
     List<Map<String, dynamic>> result =
         data.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
     await Future.forEach(result, (Map<String, dynamic> element) async {
       Map<String, dynamic> data = {};
       data.addAll(element);
       var userData = await getUser(data["userId"]);
+      userData.removeWhere((key, value) => key == "date");
       data.addAll(userData);
       finalResult.add(data);
     });

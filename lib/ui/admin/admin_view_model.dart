@@ -43,6 +43,7 @@ class AdminViewModel extends BaseViewModel {
 
   void changeUserValue(String value) {
     userValue = value;
+    getAllUsers();
     notifyListeners();
   }
 
@@ -92,7 +93,7 @@ class AdminViewModel extends BaseViewModel {
       } else {
         donorList = userList
             .where((e) =>
-                (e.bloodGroup == selectedBloodgroup) &&
+                (e.bloodGroup == dropdownvalue.toString()) &&
                 e.isAvailable ==
                     (availableValue.toLowerCase() == "available"
                         ? true
@@ -120,12 +121,13 @@ class AdminViewModel extends BaseViewModel {
                 e.bloodGroup == "A-"))
             .toList();
       } else {
-        donorList =
-            userList.where((e) => e.bloodGroup == selectedBloodgroup).toList();
+        donorList = userList
+            .where((e) => e.bloodGroup == dropdownvalue.toString())
+            .toList();
       }
       notifyListeners();
     } else {
-      donorList = userList
+            donorList = userList
           .where((element) =>
               (element.role.toString().toLowerCase() == "doner" ||
                   element.role.toString().toLowerCase() == "donor"))

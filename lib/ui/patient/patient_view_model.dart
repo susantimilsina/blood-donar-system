@@ -12,8 +12,8 @@ import 'package:http/http.dart' as http;
 class PatientViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
-        final Service.NavigationService _navigationService = locator<Service.NavigationService>();
-
+  final Service.NavigationService _navigationService =
+      locator<Service.NavigationService>();
 
   TextEditingController purposeController = TextEditingController();
   double? latitude;
@@ -62,7 +62,8 @@ class PatientViewModel extends BaseViewModel {
   }
 
   void changeNavToRoute(String route) {
-    _navigationService.navigateTo(route, arguments: AboutUsViewArguments(fromPatient: true));
+    _navigationService.navigateTo(route,
+        arguments: AboutUsViewArguments(fromPatient: true));
   }
 
   Future<void> performLogout() async {
@@ -78,7 +79,7 @@ class PatientViewModel extends BaseViewModel {
     await sendNotification();
     students.add({
       "blood_type": selectedBloodgroup.toString(),
-      "date": DateTime.now().toString().split(' ')[0],
+      "date": Timestamp.now(),
       "purpose": purposeController.text.toString(),
       "userId": _authenticationService.firebaseUser!.uid
     }).then((value) async {

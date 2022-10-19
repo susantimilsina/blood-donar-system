@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import '../../../widgets/dumb/empty_widget.dart';
 import '../../shared/ui_helper.dart';
+import 'package:intl/intl.dart';
 import 'blood_request_view_model.dart';
 
 class BloodRequestView extends StatelessWidget {
@@ -193,7 +195,7 @@ class BloodRequestView extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Date: ${model.currentDataList[index]['date']}',
+                                        'Date: ${DateFormat('MM/dd/yyyy, hh:mm a').format((model.currentDataList[index]['date'] as Timestamp).toDate())}',
                                         style: const TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
